@@ -1,0 +1,13 @@
+{% extends "arquivo_auxiliar/base.html" %}
+{% block usuario %}{{ usuario }}{% endblock %}
+{% block cabecalho1parte %}Criar a rota{% endblock %}
+{% block cabecalho2parte %} estabelecimentos e elementos para serem pesquisados{% endblock %}
+{% block corpo_1 %}
+
+    <form  method="post" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary alignright" value="/">ENVIAR</button>
+</form>
+{% endblock %}

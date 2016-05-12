@@ -1,0 +1,9 @@
+{% extends 'arquivo_auxiliar/base.html' %}
+{% block corpo_1 %}
+ <form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="button">ENVIAR</button>
+</form>
+{% endblock %}
+
