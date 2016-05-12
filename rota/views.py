@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import *
 from django.http import HttpResponseRedirect, HttpResponse
-from rotas_app.forms import *
+from rota.forms import *
 
 
 def criacao_rota(request):

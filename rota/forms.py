@@ -1,4 +1,4 @@
-from rotas_app.models import *
+from rota.models import *
 from django import forms
 
 class FORMestabelecimento(forms.ModelForm):

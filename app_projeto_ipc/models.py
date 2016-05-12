@@ -27,7 +27,6 @@ class subgrupo(models.Model):
             Os subgrupos irao compor os grupos
     '''
 
-
     nome_subgrupo = models.CharField(max_length=150)
     peso_subgrupo = models.FloatField(verbose_name="peso do subgrupo")
     grupo_relacionado = models.ForeignKey(pesos_grupos)
