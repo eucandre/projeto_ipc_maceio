@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     #-----------Rota------------------
-    #url(r'^cria_rota/$','rotas_app.views.criacao_rota'),
+    url(r'^cria_rota/$','rota.views.criacao_rota'),
     #
 
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"paginas_do_sistema/login.html"}),
