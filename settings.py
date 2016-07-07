@@ -107,7 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'ipc.urls'
+ROOT_URLCONF = 'projeto_ipc_maceio.urls'
 
 LOGIN_URL ='/login/'
 LOGOUT_URL ='/logout/'
