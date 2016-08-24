@@ -11,13 +11,13 @@ from app_projeto_ipc.forms import *
 #cada usuario cadastrado podera editar suas atividades, mesmo depois de salvas.
 #criar um banco para os arquivos excluidos, servir de um backup de serguranca, para quando errarem a exclusao ser possivel recuperar.
 
-@login_required()
+
 def acesso(request):
 
     return render_to_response("paginas_do_sistema/login.html")
 
 
-@login_required()
+
 def apresentacao(request):
     usuario = None
     if request.user.is_authenticated():
