@@ -8,20 +8,18 @@ GRUPOS = ((u'Aliemntacao_e_bebidas','Aliemntacao_e_bebidas'),(u'Habitacao','Habi
 (u'Despesas_pessoais','Despesas_pessoais'),(u'Educacao','Educacao'),(u'Comunicacao','Comunicao'))
 
 
-
-
 class FormPesos_grupos(forms.ModelForm):
     grupo = forms.ChoiceField(choices=GRUPOS, widget=forms.Select(attrs={"class":"form-control"}))
     peso = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control","mask": "99-999999"}))
 
     class Meta:
         model = pesos_grupos
-        fields = ['grupo','peso']#,'usuario']
+        fields = ['grupo','peso','usuario']
 
 class FormSubgrupo(forms.ModelForm):
     class Meta:
         model = subgrupo
-        fields = ['nome_subgrupo', 'peso_subgrupo','usuario','grupo_relacionado']
+        fields = ['nome_subgrupo', 'peso_subgrupo','usuario','grupo_relacionado', 'usuario']
 
 class FormItem(forms.ModelForm):
     class Meta:
