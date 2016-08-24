@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa4fed4-00ea-4e2a-8bb7-b5bf2298ea90" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\perfis\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\perfis\forms.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\perfis\models.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\perfis\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\perfis\views.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\rota\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\rota\forms.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\rota\models.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\rota\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\projeto_ipc_maceio\rota\views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipc.db" afterPath="$PROJECT_DIR$/ipc.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_projeto_ipc/forms.py" afterPath="$PROJECT_DIR$/app_projeto_ipc/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_projeto_ipc/models.py" afterPath="$PROJECT_DIR$/app_projeto_ipc/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/paginas_do_sistema/pesos_grupos.html" afterPath="$PROJECT_DIR$/templates/paginas_do_sistema/pesos_grupos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_projeto_ipc/views.py" afterPath="$PROJECT_DIR$/app_projeto_ipc/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projeto_ipc_maceio.iws" />
@@ -457,7 +441,11 @@
       <created>1472047435246</created>
       <updated>1472047435246</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge branch 'master' of https://github.com/eucandre/projeto_ipc_maceio&#10;&#10;# Conflicts:&#10;#&#9;app_projeto_ipc/forms.pyc&#10;#&#9;app_projeto_ipc/views.pyc&#10;#&#9;rota/forms.pyc&#10;#&#9;rota/views.pyc&#10;#&#9;urls.pyc&#10;">
+      <created>1472049281412</created>
+      <updated>1472049281412</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
