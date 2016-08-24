@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa4fed4-00ea-4e2a-8bb7-b5bf2298ea90" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/paginas_perfil/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipc.db" afterPath="$PROJECT_DIR$/ipc.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_projeto_ipc/models.py" afterPath="$PROJECT_DIR$/app_projeto_ipc/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projeto_ipc_maceio.iws" />
@@ -28,7 +31,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1275">
+            <state vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="1275">
               <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding>
                 <element signature="e#0#60#0" expanded="true" />
@@ -37,44 +40,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/settings.py">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/paginas_perfil/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7183099" vertical-offset="1734" max-vertical-offset="2400">
-              <caret line="136" column="62" selection-start-line="132" selection-start-column="0" selection-end-line="136" selection-end-column="62" />
+            <state vertical-scroll-proportion="-0.65217394" vertical-offset="0" max-vertical-offset="105">
+              <caret line="$APPLICATION_CONFIG_DIR$" column="0" selection-start-line="$APPLICATION_CONFIG_DIR$" selection-start-column="0" selection-end-line="$APPLICATION_CONFIG_DIR$" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_projeto_ipc/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="795">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app_projeto_ipc/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="1725">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="2.9929578" vertical-offset="180" max-vertical-offset="1770">
+              <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pagina_apresentacao.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/paginas_do_sistema/pagina_apresentacao.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
-              <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -104,10 +87,11 @@
         <option value="$PROJECT_DIR$/rota/forms.py" />
         <option value="$PROJECT_DIR$/app_projeto_ipc/forms.py" />
         <option value="$PROJECT_DIR$/rota/models.py" />
-        <option value="$PROJECT_DIR$/app_projeto_ipc/models.py" />
         <option value="$PROJECT_DIR$/rota/views.py" />
         <option value="$PROJECT_DIR$/app_projeto_ipc/views.py" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/app_projeto_ipc/models.py" />
+        <option value="$PROJECT_DIR$/templates/paginas_perfil/index.html" />
       </list>
     </option>
   </component>
@@ -171,6 +155,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projeto_ipc_maceio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projeto_ipc_maceio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app_projeto_ipc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -185,6 +183,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -445,7 +444,11 @@
       <created>1472049281412</created>
       <updated>1472049281412</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge branch 'master' of https://github.com/eucandre/projeto_ipc_maceio&#10;&#10;# Conflicts:&#10;#&#9;app_projeto_ipc/forms.pyc&#10;#&#9;app_projeto_ipc/views.pyc&#10;#&#9;rota/forms.pyc&#10;#&#9;rota/views.pyc&#10;#&#9;urls.pyc&#10;">
+      <created>1472049287083</created>
+      <updated>1472049287083</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -741,14 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/paginas_do_sistema/pagina_apresentacao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="170">
-          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/paginas_do_sistema/pesos_grupos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25092936" vertical-offset="0" max-vertical-offset="538">
@@ -757,27 +752,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4225352" vertical-offset="1509" max-vertical-offset="2400">
+          <caret line="141" column="24" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app_projeto_ipc/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="795">
+        <state vertical-scroll-proportion="0.6126761" vertical-offset="369" max-vertical-offset="795">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_projeto_ipc/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/paginas_do_sistema/pagina_apresentacao.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="1725">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.14888337" vertical-offset="0" max-vertical-offset="403">
+          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1275">
+        <state vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="1275">
           <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
@@ -785,11 +786,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
+    <entry file="file://$PROJECT_DIR$/templates/paginas_perfil/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7183099" vertical-offset="1734" max-vertical-offset="2400">
-          <caret line="136" column="62" selection-start-line="132" selection-start-column="0" selection-end-line="136" selection-end-column="62" />
+        <state vertical-scroll-proportion="-0.65217394" vertical-offset="0" max-vertical-offset="105">
+          <caret line="$APPLICATION_CONFIG_DIR$" column="0" selection-start-line="$APPLICATION_CONFIG_DIR$" selection-start-column="0" selection-end-line="$APPLICATION_CONFIG_DIR$" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_projeto_ipc/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.9929578" vertical-offset="180" max-vertical-offset="1770">
+          <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

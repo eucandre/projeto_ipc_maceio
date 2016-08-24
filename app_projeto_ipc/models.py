@@ -94,6 +94,9 @@ class estabelecimento(models.Model):
         db_table = "estabalecimento"
 
 class rota(models.Model):
+    '''
+        Seleciona a rota a ser seguida.
+    '''
     Local_vizitar        = models.ForeignKey(estabelecimento)
     Pesquisador          = models.ForeignKey(perfil)
     data_vizita          = models.DateField()
