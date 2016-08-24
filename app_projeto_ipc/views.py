@@ -51,3 +51,30 @@ def pesos_grupos(request):
     else:
         form = FormPesos_grupos()
     return render_to_response("paginas_do_sistema/pesos_grupos.html",{"form":form,"usuario":usu}, context_instance = RequestContext(request))
+
+def criacao_rota(request):
+    usu = None
+    if request.user.is_authenticated():
+        usu = request.user.username
+    if request.method =="post":
+        form = FORMrota(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+            return render_to_response("arquivo_auxiliar/salvo.html",{})
+    else:
+        form = FORMrota()
+    return render_to_response("paginas_da_rota/criar_rota.html",{"form":form, "usuario":usu})
+
+
+def perfil(request):
+    if request.method == "POST":
+        form  = Formperfil(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = Formperfil()
+    return render_to_response("")

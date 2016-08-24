@@ -128,8 +128,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'projeto_ipc_maceio.app_projeto_ipc',
-    'projeto_ipc_maceio.rota',
-    'projeto_ipc_maceio.perfis',
 )
 
 # A sample logging configuration. The only tangible logging

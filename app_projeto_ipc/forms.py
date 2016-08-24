@@ -30,3 +30,20 @@ class FormSubitem(forms.ModelForm):
     class Meta:
         model = subitem
         firlds = ['nome_subitem','peso_subitem','item_relacionado','usuario']
+
+class FORMestabelecimento(forms.ModelForm):
+
+    class Meta:
+        model = estabelecimento
+        fields = ['NomeDoEstabeleciemento','Bairro','Rua','TeleFone','Email','usuario']
+
+class FORMrota(forms.ModelForm):
+    class Meta:
+        model = rota
+        fields =['Local_vizitar','Pesquisador','data_vizita','grupo__para_pesquisa','SubGrupoParaPesquisa','Item_pesquisado','usuario']
+
+
+class Formperfil(forms.ModelForm):
+    class Meta:
+        model = perfil
+        fields = ["nome_pesquisador", "vinculo",'usuario']

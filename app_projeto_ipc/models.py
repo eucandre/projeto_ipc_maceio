@@ -5,6 +5,7 @@ GRUPOS = ((u'Aliemntacao_e_bebidas','Aliemntacao_e_bebidas'),(u'Habitacao','Habi
 (u'Vestuario','Vestuario'),(u'Transportes','Transportes'),(u'Saude_e_cuidados_especiais','Saude_e_cuidados_especiais'),
 (u'Despesas_pessoais','Despesas_pessoais'),(u'Educacao','Educacao'),(u'Comunicacao','Comunicao'))
 
+VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
 
 class pesos_grupos(models.Model):
     '''
@@ -66,3 +67,43 @@ class subitem(models.Model):
     class Meta:
         verbose_name_plural = "Subitem"
 
+class perfil(models.Model):
+    '''
+        Esta classe tem a funcionalidade de cadastrar o perfil dos participantes do ipc para controlar as pesquisas realizadas.
+    '''
+    nome_pesquisador = models.CharField(max_length=150)
+    vinculo = models.CharField(choices=VINCULO, max_length=150)
+    usuario = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.nome_pesquisador
+
+class estabelecimento(models.Model):
+    NomeDoEstabeleciemento = models.CharField(max_length=150)
+    Bairro                 = models.CharField(max_length=150)
+    Rua                    = models.CharField(max_length=150)
+    TeleFone               = models.CharField(max_length=150, blank=True)
+    Email                  = models.EmailField(blank=True)
+    usuario                = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.NomeDoEstabeleciemento
+
+    class Meta:
+        verbose_name_plural = "Estabelecimento"
+        db_table = "estabalecimento"
+
+class rota(models.Model):
+    Local_vizitar        = models.ForeignKey(estabelecimento)
+    Pesquisador          = models.ForeignKey(perfil)
+    data_vizita          = models.DateField()
+    grupo__para_pesquisa = models.ForeignKey(pesos_grupos)
+    SubGrupoParaPesquisa = models.ForeignKey(subgrupo)
+    Item_pesquisado      = models.ForeignKey(item)
+    usuario              = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.Local_vizitar
+
+    class Meta:
+        verbose_name_plural = "Rota da pesquisa"
