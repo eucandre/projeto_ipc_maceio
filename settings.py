@@ -52,7 +52,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'C:/projeto_ipc_maceio/media'
+MEDIA_ROOT = '/home/carlos/www/projeto_ipc_maceio/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -111,7 +111,7 @@ ROOT_URLCONF = 'projeto_ipc_maceio.urls'
 
 LOGIN_URL ='/login/'
 LOGOUT_URL ='/logout/'
-LOGIN_REDIRECT_URL ='/apresentacao/'
+LOGIN_REDIRECT_URL ='/'
 
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
