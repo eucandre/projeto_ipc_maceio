@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^ipc/', include('ipc.foo.urls')),
     #url(r'^$','app_ipc.views.acesso'),
     url(r'^$','app_projeto_ipc.views.apresentacao'),
-    url(r'^sub_produtos/$','app_projeto_ipc.views.registra_grupos'),
+    url(r'^sub_grupos/$','app_projeto_ipc.views.registra_grupos'),
     url(r'^peso_grupos/$','app_projeto_ipc.views.pesos_grupos'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     #-----------Rota------------------
     url(r'^cria_rota/$','app_projeto_ipc.views.criacao_rota'),
+    url(r'^perfil/$','app_projeto_ipc.views.perfil'),
     #
 
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"paginas_do_sistema/login.html"}),

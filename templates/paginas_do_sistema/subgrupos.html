@@ -1,9 +1,14 @@
 {% extends 'arquivo_auxiliar/base.html' %}
+{% block titulo_pagina%}Pesos dos subgrupos{% endblock %}
+{% block usuario %}<span style="font-weight: bolder;">{{ usuario }}</span>{% endblock %}
+{% block cabecalho1parte %}Subgrupos{% endblock %}
+{% block cabecalho2parte %}Catalogação dos pesos{% endblock %}
 {% block corpo_1 %}
+
  <form action="." method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="button">ENVIAR</button>
+    <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
 </form>
 {% endblock %}
 

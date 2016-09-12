@@ -24,7 +24,7 @@ def apresentacao(request):
         usuario = request.user.username
     return render_to_response("paginas_do_sistema/pagina_apresentacao.html",{"usuario":usuario})
 
-@login_required()
+
 def registra_grupos(request):
     if request.method == "post":
         form = FormSubgrupo(request.FILES, request.POST)
@@ -36,7 +36,7 @@ def registra_grupos(request):
         form = FormSubgrupo()
     return render_to_response("paginas_do_sistema/subgrupos.html",{"form":form}, context_instance = RequestContext(request))
 
-@login_required()
+
 def pesos_grupos(request):
     usu = None
     if request.user.is_authenticated():
@@ -69,6 +69,9 @@ def criacao_rota(request):
 
 
 def perfil(request):
+    usu = None
+    if request.user.is_authenticated():
+        usu = request.user.username
     if request.method == "POST":
         form  = Formperfil(request.POST, request.FILES)
         if form.is_valid():
@@ -77,4 +80,4 @@ def perfil(request):
             item.save()
     else:
         form = Formperfil()
-    return render_to_response("")
+    return render_to_response("paginas_perfil/index.html",{"form":form, "usuario":usu})

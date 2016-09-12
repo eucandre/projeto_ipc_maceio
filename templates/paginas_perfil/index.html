@@ -1,1 +1,14 @@
 {% extends "arquivo_auxiliar/base.html" %}
+{% block titulo_pagina %}Perfil do pesquisador{% endblock %}
+{% block usuario %}<span style="font-weight: bolder;">{{ usuario }}</span>{% endblock %}
+{% block cabecalho1parte %}Perfil{% endblock %}
+{% block cabecalho2parte %} Pesquisadores {% endblock %}
+{% block corpo_1 %}
+
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
+    </form>
+
+{% endblock %}
