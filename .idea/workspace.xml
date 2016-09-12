@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa4fed4-00ea-4e2a-8bb7-b5bf2298ea90" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_projeto_ipc/calculo_para_laspeyre.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projeto_ipc_maceio.iws" />
@@ -25,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.101604275" vertical-offset="793" max-vertical-offset="1377">
+            <state vertical-scroll-proportion="0.0" vertical-offset="793" max-vertical-offset="1377">
               <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calculo_para_laspeyre.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_projeto_ipc/calculo_para_laspeyre.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="561">
+              <caret line="$APPLICATION_CONFIG_DIR$" column="79" selection-start-line="$APPLICATION_CONFIG_DIR$" selection-start-column="79" selection-end-line="$APPLICATION_CONFIG_DIR$" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -85,6 +96,7 @@
         <option value="$PROJECT_DIR$/app_projeto_ipc/forms.py" />
         <option value="$PROJECT_DIR$/urls.py" />
         <option value="$PROJECT_DIR$/templates/arquivo_auxiliar/base.html" />
+        <option value="$PROJECT_DIR$/app_projeto_ipc/calculo_para_laspeyre.py" />
       </list>
     </option>
   </component>
@@ -450,7 +462,11 @@
       <created>1473683105219</created>
       <updated>1473683105219</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Merge branch 'master' of https://github.com/eucandre/projeto_ipc_maceio&#10;&#10;# Conflicts:&#10;#&#9;app_projeto_ipc/forms.pyc&#10;#&#9;app_projeto_ipc/views.pyc&#10;#&#9;rota/forms.pyc&#10;#&#9;rota/views.pyc&#10;#&#9;urls.pyc&#10;">
+      <created>1473683117243</created>
+      <updated>1473683117243</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -521,14 +537,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="646">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2720">
@@ -900,8 +908,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.101604275" vertical-offset="793" max-vertical-offset="1377">
+        <state vertical-scroll-proportion="0.0" vertical-offset="793" max-vertical-offset="1377">
           <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_projeto_ipc/calculo_para_laspeyre.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="561">
+          <caret line="$APPLICATION_CONFIG_DIR$" column="79" selection-start-line="$APPLICATION_CONFIG_DIR$" selection-start-column="79" selection-end-line="$APPLICATION_CONFIG_DIR$" selection-end-column="79" />
           <folding />
         </state>
       </provider>
