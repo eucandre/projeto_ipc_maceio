@@ -85,7 +85,7 @@ class perfil(models.Model):
         return self.nome_pesquisador
 
 class estabelecimento(models.Model):
-    NomeDoEstabeleciemento = models.CharField(max_length=150)
+    Nome = models.CharField(max_length=150)
     Bairro                 = models.CharField(max_length=150)
     Rua                    = models.CharField(max_length=150)
     TeleFone               = models.CharField(max_length=150, blank=True)
@@ -93,7 +93,7 @@ class estabelecimento(models.Model):
     usuario                = models.ForeignKey(User)
 
     def __unicode__(self):
-        return self.NomeDoEstabeleciemento
+        return self.Nome
 
     class Meta:
         verbose_name_plural = "Estabelecimento"

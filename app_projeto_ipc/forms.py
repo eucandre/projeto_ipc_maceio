@@ -36,7 +36,7 @@ class FormSubitem(forms.ModelForm):
         firlds = ['nome_subitem','peso_subitem','item_relacionado','usuario']
 
 class FORMestabelecimento(forms.ModelForm):
-    NomeDoEstabeleciemento = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control", "label":"Nome"}))
+    Nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control", "label":"Nome"}))
     Bairro = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
     Rua = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
     TeleFone = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
