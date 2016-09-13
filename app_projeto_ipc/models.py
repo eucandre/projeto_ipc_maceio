@@ -41,8 +41,14 @@ class subgrupo(models.Model):
 
 
 class item(models.Model):
-
+    '''
+        Este metodo cadastra o item e verifica se esta ativo
+    '''
     nome_item = models.CharField(max_length=150)
+    preco = models.FloatField()
+    marca = models.CharField(max_length=150, blank=True)
+    ativo = models.BooleanField()
+    data_verificacao = models.DateField()
     usuario = models.ForeignKey(User)
 
     def __unicode__(self):

@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     #-----------Rota------------------
     url(r'^cria_rota/$','app_projeto_ipc.views.criacao_rota'),
     url(r'^perfil/$','app_projeto_ipc.views.perfil'),
+    url(r'^estabelecimento','app_projeto_ipc.views.estabelecimento'),
     #
 
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"paginas_do_sistema/login.html"}),

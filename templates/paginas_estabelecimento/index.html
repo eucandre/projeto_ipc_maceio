@@ -1,0 +1,15 @@
+{% extends "arquivo_auxiliar/base.html" %}
+{% block titulo_pagina %}Estabelecimento{% endblock %}
+{% block usuario%}{% endblock %}
+{% block cabecalho1parte%}Estabelecimento{% endblock %}
+{% block cabecalho2parte%}cadastro para pesquisa{% endblock %}
+
+{% block corpo_1 %}
+
+      <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
+    </form>
+
+{% endblock %}

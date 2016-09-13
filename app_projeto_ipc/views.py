@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from app_projeto_ipc.forms import *
+from calculo_para_laspeyre import *
+
 #criar os usuarios e seus loggins, o acesso sera somente com acesso dos usuarios (Feito)
 #criar a edicao do perfil do usuario, podendo mudar a senha e o nome que de usuario.
 #cada usuario cadastrado podera editar suas atividades, mesmo depois de salvas.
@@ -38,6 +40,10 @@ def registra_grupos(request):
 
 
 def pesos_grupos(request):
+    '''
+    Esta funcao ira guardar os pesos baseando-se na tabela pof. quem modifica esta funcao eh apenas o adm. geral.
+    '''
+
     usu = None
     if request.user.is_authenticated():
         usu = request.user.username
@@ -65,7 +71,7 @@ def criacao_rota(request):
             return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FORMrota()
-    return render_to_response("paginas_da_rota/criar_rota.html",{"form":form, "usuario":usu})
+    return render_to_response("paginas_da_rota/criar_rota.html",{"form":form, "usuario":usu} , context_instance = RequestContext(request))
 
 
 def perfil(request):
@@ -80,4 +86,20 @@ def perfil(request):
             item.save()
     else:
         form = Formperfil()
-    return render_to_response("paginas_perfil/index.html",{"form":form, "usuario":usu})
+    return render_to_response("paginas_perfil/index.html",{"form":form, "usuario":usu}, context_instance = RequestContext(request))
+
+def estabelecimento(request):
+    if request.method=="post":
+        form = FORMestabelecimento(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = FORMestabelecimento()
+    return render_to_response("paginas_estabelecimento/index.html",{"form":form}, context_instance = RequestContext(request))
+
+def calcula_laspeyres(request):
+    usu = None
+    if request.method == "post":
+        pass
