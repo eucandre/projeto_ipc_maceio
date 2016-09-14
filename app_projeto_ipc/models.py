@@ -5,15 +5,24 @@ GRUPOS = ((u'1 - Aliemntacao_e_bebidas','1 - Aliemntacao_e_bebidas'),(u'2 - Habi
 (u'4 - Vestuario','4 - Vestuario'),(u'5 - Transportes','5 - Transportes'),(u'6 - Saude_e_cuidados_especiais','6 - Saude_e_cuidados_especiais'),
 (u'7 - Despesas_pessoais','7 - Despesas_pessoais'),(u'8 - Educacao','8 - Educacao'),(u'9 - Comunicacao','9 - Comunicao'))
 
-SUBGRUPOS = ((u'1.1 - Alimentacao_no_domicilio','1.1 - Alimentacao_no_domicilio'), (u'1.2 - Alimentacao_fora_do_domicilio','1.2 - Alimentacao_fora_do_domicilio'),
-             (u'2.1 - Encargos_e_manutencao','2.1 - Encargos_e_manutencao'),(u'2.2 - Combustiveis_e_energia','2.2 - Combustiveis_e_energia'),
-             (u'3.1 - Moveis_e_utensilios','3.1 - Moveis_e_utensilios'),(u'3.2 - Aparelhos_eletroeletronicos','3.2 - Aparelhos_eletroeletronicos'),
-             (u'3.3 - Consertos_e_manutencao','3.3 - Consertos_e_manutencao'), (u'4.1 - Roupas','4.1 - Roupas'),(u'4.2 - Calcados_e_acessorios',''),
-             (u'4.3 - Joias_e_bijuterias','4.3 - Joias_e_bijuterias'),(u'4.4 - Tecidos e armarinho','4.4 - Tecidos e armarinho'),
-             (u'5.1 - Transportes','5.1 - Transportes'),(u'6.1 - Produtos_farmaceuticos_e_oticos','6.1 - Produtos_farmaceuticos_e_oticos'),
-             (u'6.2 - Servicos_de_saude','6.2 - Servicos_de_saude'),(u'6.3 - Cuidados pessoais','6.3 - Cuidados pessoais'),(u'7.1 - Servicos_pessoais','7.1 - Servicos_pessoais'),
-             (u'7.2 - Recreacao_fumo_e_fotografia','7.2 - Recreacao_fumo_e_fotografia'),(u'8.1 - Cursos_leitura_e_papelaria','8.1 - Cursos_leitura_e_papelaria'),
-             (u'9.1 - Comunicacao','9.1Comunicacao'))
+SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
+             (u'Alimentacao_fora_do_domicilio', '1.2 - Alimentacao fora do domicilio'),
+             (u'Encargos_e_manutencao', '2.1 - Encargos e manutencao'),
+             (u'Combustiveis_e_energia', '2.2 - Combustiveis e energia'),
+             (u'Moveis_e_utensilios', '3.1 - Moveis e utensilios'),
+             (u'Aparelhos_eletroeletronicos', '3.2 - Aparelhos eletroeletronicos'),
+             (u'Consertos_e_manutencao', '3.3 - Consertos e manutencao'), (u'4.1 - Roupas', '4.1 - Roupas'),
+             (u'Calcados_e_acessorios', '4.2 - Calcados e assessorios'),
+             (u'Joias_e_bijuterias', '4.3 - Joias e bijuterias'),
+             (u'Tecidos e armarinho', '4.4 - Tecidos e armarinho'),
+             (u'Transportes', '5.1 - Transportes'),
+             (u'Produtos_farmaceuticos_e_oticos', '6.1 - Produtos farmaceuticos e oticos'),
+             (u'Servicos_de_saude', '6.2 - Servicos de saude'),
+             (u'Cuidados pessoais', '6.3 - Cuidados pessoais'),
+             (u'Servicos_pessoais', '7.1 - Servicos pessoais'),
+             (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
+             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos_leitura e papelaria'),
+             (u'Comunicacao', '9.1 - Comunicacao'))
 VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
 
 class pesos_grupos(models.Model):
