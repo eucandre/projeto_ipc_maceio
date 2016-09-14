@@ -34,7 +34,7 @@ class FormPesos_grupos(forms.ModelForm):
 
     class Meta:
         model = pesos_grupos
-        fields = ['grupo','peso','usuario']
+        fields = ['grupo','peso']#,'usuario']
 
 class FormSubgrupo(forms.ModelForm):
     nome_subgrupo = forms.ChoiceField(choices=SUBGRUPOS , widget=forms.Select(attrs={"class":"form-control"}))
@@ -47,12 +47,12 @@ class FormSubgrupo(forms.ModelForm):
 class FormItem(forms.ModelForm):
     class Meta:
         model = item
-        fields = ['nome_item','usuario']
+        fields = ['usuario']
 
 class FormSubitem(forms.ModelForm):
     class Meta:
         model = subitem
-        fields = ['nome_subitem','peso_subitem','item_relacionado','usuario']
+        fields = ['usuario']
 
 class FormProduto(forms.ModelForm):
     nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -74,7 +74,7 @@ class FORMestabelecimento(forms.ModelForm):
 
     class Meta:
         model = estabelecimento
-
+        fields = ['usuario']
 
 class FORMrota(forms.ModelForm):
     local_visitar = forms.ModelChoiceField(queryset=estabelecimento.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))

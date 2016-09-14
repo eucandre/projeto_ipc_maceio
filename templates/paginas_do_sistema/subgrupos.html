@@ -6,8 +6,13 @@
 {% block corpo_1 %}
 
  <form action="." method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+        {% csrf_token %}
+        {{ form.nome_subgrupo.label }}
+        {{ form.nome_subgrupo }}
+        {{ form.peso_subgrupo.label }}
+        {{ form.peso_subgrupo }}
+        {{ form.grupo_relacionado.label }}
+        {{ form.grupo_relacionado }}
     <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
 </form>
 {% endblock %}
