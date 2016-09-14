@@ -27,7 +27,7 @@ def apresentacao(request):
     return render_to_response("paginas_do_sistema/pagina_apresentacao.html",{"usuario":usuario})
 
 
-def registra_grupos(request):
+def sub_grupos(request):
     if request.method == "post":
         form = FormSubgrupo(request.FILES, request.POST)
         if form.is_valid():

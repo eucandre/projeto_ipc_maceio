@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^ipc/', include('ipc.foo.urls')),
     #url(r'^$','app_ipc.views.acesso'),
     url(r'^$','app_projeto_ipc.views.apresentacao'),
-    url(r'^sub_grupos/$','app_projeto_ipc.views.registra_grupos'),
+    url(r'^sub_grupos/$','app_projeto_ipc.views.sub_grupos'),
     url(r'^peso_grupos/$','app_projeto_ipc.views.pesos_grupos'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

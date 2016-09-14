@@ -7,6 +7,25 @@ GRUPOS = ((u'Aliemntacao_e_bebidas','Aliemntacao_e_bebidas'),(u'Habitacao','Habi
 (u'Vestuario','Vestuario'),(u'Transportes','Transportes'),(u'Saude_e_cuidados_especiais','Saude_e_cuidados_especiais'),
 (u'Despesas_pessoais','Despesas_pessoais'),(u'Educacao','Educacao'),(u'Comunicacao','Comunicao'))
 
+SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
+             (u'Alimentacao_fora_do_domicilio', '1.2 - Alimentacao fora do domicilio'),
+             (u'Encargos_e_manutencao', '2.1 - Encargos e manutencao'),
+             (u'Combustiveis_e_energia', '2.2 - Combustiveis e energia'),
+             (u'Moveis_e_utensilios', '3.1 - Moveis e utensilios'),
+             (u'Aparelhos_eletroeletronicos', '3.2 - Aparelhos eletroeletronicos'),
+             (u'Consertos_e_manutencao', '3.3 - Consertos e manutencao'), (u'4.1 - Roupas', '4.1 - Roupas'),
+             (u'Calcados_e_acessorios', '4.2 Calcados e assessorios'),
+             (u'Joias_e_bijuterias', '4.3 - Joias e bijuterias'),
+             (u'Tecidos e armarinho', '4.4 - Tecidos e armarinho'),
+             (u'Transportes', '5.1 - Transportes'),
+             (u'Produtos_farmaceuticos_e_oticos', '6.1 - Produtos farmaceuticos e oticos'),
+             (u'Servicos_de_saude', '6.2 - Servicos de saude'),
+             (u'Cuidados pessoais', '6.3 - Cuidados pessoais'),
+             (u'Servicos_pessoais', '7.1 - Servicos pessoais'),
+             (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
+             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos_leitura e papelaria'),
+             (u'Comunicacao', '9.1 - Comunicacao'))
+
 VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
 
 class FormPesos_grupos(forms.ModelForm):
@@ -18,7 +37,7 @@ class FormPesos_grupos(forms.ModelForm):
         fields = ['grupo','peso','usuario']
 
 class FormSubgrupo(forms.ModelForm):
-    nome_subgrupo = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
+    nome_subgrupo = forms.ChoiceField(choices=SUBGRUPOS , widget=forms.Select(attrs={"class":"form-control"}))
     peso_subgrupo = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
     grupo_relacionado = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
     class Meta:
