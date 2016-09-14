@@ -37,7 +37,7 @@ class subgrupo(models.Model):
          O peso dos subgrupos eh composto pela soma dos pesos dos itens.
     '''
 
-    nome_subgrupo = models.CharField(max_length=150)
+    nome_subgrupo = models.CharField(max_length=150, choices=SUBGRUPOS)
     peso_subgrupo = models.FloatField(verbose_name="peso do subgrupo")#este campo recebera automaticamente a soma da classe itens.
     data_verificacao_peso = models.DateField()
     grupo_relacionado = models.ForeignKey(pesos_grupos)
