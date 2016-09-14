@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import *
 
-GRUPOS = ((u'1 - Aliemntacao_e_bebidas','1 - Aliemntacao_e_bebidas'),(u'2 - Habitacao','2 - Habitacao'),(u'3 - Artigos_e_residencia','3 - Artigos_e_residencia'),
-(u'4 - Vestuario','4 - Vestuario'),(u'5 - Transportes','5 - Transportes'),(u'6 - Saude_e_cuidados_especiais','6 - Saude_e_cuidados_especiais'),
-(u'7 - Despesas_pessoais','7 - Despesas_pessoais'),(u'8 - Educacao','8 - Educacao'),(u'9 - Comunicacao','9 - Comunicao'))
+GRUPOS = ((u'Aliemntacao_e_bebidas','1 - Aliemntacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
+(u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados_especiais'),
+(u'Despesas_pessoais','7 - Despesas pessoais'),(u'Educacao','8 - Educacao'),(u'Comunicacao','9 - Comunicao'))
 
 SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Alimentacao_fora_do_domicilio', '1.2 - Alimentacao fora do domicilio'),
