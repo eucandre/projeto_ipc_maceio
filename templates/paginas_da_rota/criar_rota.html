@@ -6,7 +6,18 @@
 
     <form  method="post" action=".">
     {% csrf_token %}
-    {{ form.as_p }}
+        {{ form.local_visitar.label }}
+        {{ form.local_visitar }}
+        {{ form.data_visita.label }}
+        {{ form.data_visita }}
+        {{ form.pesquisador.label }}
+        {{ form.pesquisador}}
+        {{ form.grupo__para_pesquisa.label }}
+        {{ form.grupo__para_pesquisa }}
+        {{ form.sub_grupo.label }}
+        {{ form.sub_grupo }}
+        {{ form.item_pesquisa.label }}
+        {{ form.item_pesquisa }}
 
     <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
 </form>
