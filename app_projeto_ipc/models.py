@@ -128,7 +128,7 @@ class rota(models.Model):
     '''
         Seleciona a rota a ser seguida.
     '''
-    Local_vizitar        = models.ForeignKey(estabelecimento)
+    Local_visitar        = models.ForeignKey(estabelecimento)
     Pesquisador          = models.ForeignKey(perfil)
     data_vizita          = models.DateField()
     grupo__para_pesquisa = models.ForeignKey(pesos_grupos)
@@ -137,7 +137,7 @@ class rota(models.Model):
     usuario              = models.ForeignKey(User)
 
     def __unicode__(self):
-        return self.Local_vizitar
+        return self.Local_visitar
 
     class Meta:
         verbose_name_plural = "Rota da pesquisa"
