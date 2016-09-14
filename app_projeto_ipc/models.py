@@ -91,6 +91,7 @@ class produto(models.Model):
     data_verificacao = models.DateField()
     subitem_tipo = models.ForeignKey(subitem)
     ativo = models.BooleanField()
+    usuario = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.nome

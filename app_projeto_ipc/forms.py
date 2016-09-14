@@ -23,7 +23,7 @@ class FormSubgrupo(forms.ModelForm):
     grupo_relacionado = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
     class Meta:
         model = subgrupo
-        fields = ['usuario',]
+        fields = ['usuario']
 
 class FormItem(forms.ModelForm):
     class Meta:
@@ -33,7 +33,18 @@ class FormItem(forms.ModelForm):
 class FormSubitem(forms.ModelForm):
     class Meta:
         model = subitem
-        firlds = ['nome_subitem','peso_subitem','item_relacionado','usuario']
+        fields = ['nome_subitem','peso_subitem','item_relacionado','usuario']
+
+class FormProduto(forms.ModelForm):
+    nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
+    marca = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
+    preco = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
+    data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control"}))
+    sub_item = forms.ModelChoiceField(queryset=subitem.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
+    ativo = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"form-control"}))
+    class Meta:
+        model = produto
+        fields = ['usuario']
 
 class FORMestabelecimento(forms.ModelForm):
     Nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control", "label":"Nome"}))
