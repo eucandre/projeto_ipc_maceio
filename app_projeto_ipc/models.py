@@ -51,7 +51,7 @@ class subgrupo(models.Model):
 
 class item(models.Model):
     '''
-        Os itens serao atualizados periodicamente.
+        Sao compostos por subitens
     '''
     nome_item = models.CharField(max_length=150)
     peso = models.FloatField()#valor dado por automatizacao
