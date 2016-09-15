@@ -99,6 +99,17 @@ def estabelecimento(request):
         form = FORMestabelecimento()
     return render_to_response("paginas_estabelecimento/index.html",{"form":form}, context_instance = RequestContext(request))
 
+def produto(request):
+    if request.method =="post":
+        form = FormProduto(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = FormProduto()
+    return render_to_response("paginas_produtos/index.html", {"form":form}, context_instance = RequestContext(request))
+
 def calcula_laspeyres(request):
     usu = None
     if request.method == "post":

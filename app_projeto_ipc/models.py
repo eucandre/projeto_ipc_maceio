@@ -63,6 +63,7 @@ class item(models.Model):
         Sao compostos por subitens
     '''
     nome_item = models.CharField(max_length=150)
+    sub_grupo = models.ForeignKey(subgrupo)
     peso = models.FloatField()#valor dado por automatizacao
     data_verificacao = models.DateField()
     usuario = models.ForeignKey(User)
