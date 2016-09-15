@@ -60,7 +60,7 @@ class FormProduto(forms.ModelForm):
     preco = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
     data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control"}))
     sub_item = forms.ModelChoiceField(queryset=subitem.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
-    ativo = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"form-control"}))
+    ativo = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}), help_text="Se o produto esta ativo")
     class Meta:
         model = produto
         fields = ['usuario']

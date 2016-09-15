@@ -5,8 +5,20 @@
 {% block cabecalho2parte %}Catalogação e atualização{% endblock %}
 {% block corpo_1 %}
         <form action="." method="post">
-        {% csrf_token %}
-        
+            {% csrf_token %}
+            {{ form.nome.label }}
+            {{ form.nome }}
+            {{ form.marca.label }}
+            {{ form.marca }}
+            {{ form.data_verificacao.label }}
+            {{ form.data_verificacao }}
+            {{ form.preco.label }}
+            {{ form.preco }}
+            {{ form.sub_item.label }}
+            {{ form.sub_item }}
+            {{ form.ativo.label }}
+            {{ form.ativo }}<div style="color: red;">{{ form.ativo.help_text }}</div>
+
         <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>
 
