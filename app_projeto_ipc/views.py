@@ -99,6 +99,17 @@ def estabelecimento(request):
         form = FORMestabelecimento()
     return render_to_response("paginas_estabelecimento/index.html",{"form":form}, context_instance = RequestContext(request))
 
+def item(request):
+    if request.method == "post":
+        form = FormItem(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = FormItem()
+    return render_to_response("paginas_item/index.html" ,{"form":form}, context_instance = RequestContext(request))
+
 def produto(request):
     if request.method =="post":
         form = FormProduto(request.POST, request.FILES)

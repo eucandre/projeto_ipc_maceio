@@ -8,11 +8,11 @@
  <form action="." method="post">
         {% csrf_token %}
         {{ form.nome_subgrupo.label }}
-        {{ form.nome_subgrupo }}
+        {{ form.nome_subgrupo }}<br >
         {{ form.peso_subgrupo.label }}
-        {{ form.peso_subgrupo }}
+        {{ form.peso_subgrupo }}<br >
         {{ form.grupo_relacionado.label }}
-        {{ form.grupo_relacionado }}
+        {{ form.grupo_relacionado }}<br >
     <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
 </form>
 {% endblock %}

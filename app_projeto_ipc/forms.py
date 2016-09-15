@@ -45,6 +45,10 @@ class FormSubgrupo(forms.ModelForm):
         fields = ['usuario']
 
 class FormItem(forms.ModelForm):
+    nome_item = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
+    sub_grupo  = forms.ModelChoiceField(queryset=subgrupo.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
+    peso = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
+    data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control", "placeholder":"DD/MM/AAAA"}))
     class Meta:
         model = item
         fields = ['usuario']
@@ -58,7 +62,7 @@ class FormProduto(forms.ModelForm):
     nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
     marca = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
     preco = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
-    data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control"}))
+    data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control", "placeholder":"DD/MM/AAAA"}))
     sub_item = forms.ModelChoiceField(queryset=subitem.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
     ativo = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}), help_text="Se o produto esta ativo")
     class Meta:
