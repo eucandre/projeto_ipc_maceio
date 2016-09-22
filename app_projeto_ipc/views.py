@@ -110,6 +110,16 @@ def item(request):
         form = FormItem()
     return render_to_response("paginas_item/index.html" ,{"form":form}, context_instance = RequestContext(request))
 
+def subitem(request):
+    if request.method == "post":
+        form     = FormSubitem(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = FormSubitem()
+    return render_to_response("paginas_subitem/index.html",{"form":form}, context_instance = RequestContext(request) )
 def produto(request):
     if request.method =="post":
         form = FormProduto(request.POST, request.FILES)
@@ -121,7 +131,13 @@ def produto(request):
         form = FormProduto()
     return render_to_response("paginas_produtos/index.html", {"form":form}, context_instance = RequestContext(request))
 
-def calcula_laspeyres(request):
-    usu = None
-    if request.method == "post":
-        pass
+def ColetaPrecos(request):
+    if request.method =="post":
+        form = FormColetaPrecos(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.usuario = request.user
+            item.save()
+    else:
+        form = FormColetaPrecos()
+    return render_to_response()

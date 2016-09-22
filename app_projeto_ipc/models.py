@@ -121,7 +121,7 @@ class perfil(models.Model):
         return self.nome_pesquisador
 
 class estabelecimento(models.Model):
-    Nome = models.CharField(max_length=150)
+    Nome                   = models.CharField(max_length=150)
     Bairro                 = models.CharField(max_length=150)
     Rua                    = models.CharField(max_length=150)
     TeleFone               = models.CharField(max_length=150, blank=True)
@@ -152,3 +152,25 @@ class rota(models.Model):
 
     class Meta:
         verbose_name_plural = "Rota da pesquisa"
+
+class ColetaPrecos(models.Model):
+    """
+        Responsavel pela coleta de precos dos produtos da pesquisa
+    """
+    local               = models.ForeignKey(estabelecimento)
+    pesquisador         = models.ForeignKey(perfil)
+    grupo_pesquisa      = models.ForeignKey(pesos_grupos)
+    sub_grupo           = models.ForeignKey(subgrupo)
+    item_pesquisa       = models.ForeignKey(item)
+    subitem             = models.ManyToManyField(subitem)
+    produto_de_pesquisa = models.ManyToManyField(produto)
+    quantidade          = models.IntegerField()
+    preco_quantidade_produto  = models.FloatField()
+    somatorio_precos = models.FloatField()
+    usuario             = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.local
+
+    class Meta:
+        verbose_name_plural = "Coleta de precos"

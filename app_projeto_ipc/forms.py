@@ -2,6 +2,7 @@ __author__ = 'Carlos'
 
 from django import forms
 from models import *
+from datetime import *
 
 GRUPOS = ((u'Aliemntacao_e_bebidas','1 - Aliemntacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
             (u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados_especiais'),
@@ -98,3 +99,21 @@ class Formperfil(forms.ModelForm):
     class Meta:
         model = perfil
         fields = ['usuario']
+
+
+class FormColetaPrecos(forms.ModelForm):
+    
+    estabelecimento = forms.ModelChoiceField(queryset=estabelecimento.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Estabelecimento"}))
+    pesquisador = forms.ModelChoiceField(queryset=perfil.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Pesquisador"}))
+    grupo_pesquisa = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Grupo"}))
+    sub_grupo = forms.ModelChoiceField(queryset=subgrupo.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subgrupo"}))
+    item = forms.ModelChoiceField(queryset=item.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Item"}))
+    subitem = forms.ModelMultipleChoiceField(queryset=subitem.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subitem"}))
+    produto = forms.ModelMultipleChoiceField(queryset=produto.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Produto"}))
+    preco_quantidade_produto = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Preco produto"}))
+    quantidade = forms.IntegerField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Quantidade"}))
+    somatorio_precos = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Somatorio"}))
+    
+    class Meta:
+        model = ColetaPrecos
+        fields =['usuario']
