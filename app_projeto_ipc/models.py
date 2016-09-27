@@ -23,14 +23,14 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
              (u'Cursos_leitura_e_papelaria', '8.1 - Cursos_leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
-VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
+
+VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
 
 class pesos_grupos(models.Model):
     '''
         A finalidade desta classe eh possibilitar a atribuicao dos pesos dos grupos, quando necessario a mudanca, sem a necessidade
     de mexer em linha de codigo e permitir que o administrador do projeto edite sem prejuizo ao sistema.
     '''
-
     grupo = models.CharField(choices=GRUPOS, max_length=150)
     peso = models.FloatField()
     usuario = models.ForeignKey(User)
@@ -40,12 +40,12 @@ class pesos_grupos(models.Model):
 
     class Meta:
         verbose_name_plural = "Pesos grupos"
+        db_table = 'grupo'
 
 class subgrupo(models.Model):
     '''
          O peso dos subgrupos eh composto pela soma dos pesos dos itens.
     '''
-
     nome_subgrupo = models.CharField(max_length=150, choices=SUBGRUPOS)
     peso_subgrupo = models.FloatField(verbose_name="peso do subgrupo")#este campo recebera automaticamente a soma da classe itens.
     data_verificacao_peso = models.DateField()
@@ -57,6 +57,7 @@ class subgrupo(models.Model):
 
     class Meta:
         verbose_name_plural = "Subgrupos"
+        db_table = 'subgrupo'
 
 class item(models.Model):
     '''
@@ -73,12 +74,12 @@ class item(models.Model):
 
     class Meta:
         verbose_name_plural = "Item"
+        db_table = 'item'
 
 class subitem(models.Model):
     '''
         Cada subitem possui seu pesso, baseando-se na tabela da POF, subitem composto por produto.
     '''
-
     nome_subitem = models.CharField(max_length=150)
     peso_subitem = models.FloatField(verbose_name="peso do subitem")#valor dados a partir de uma funcao
     item_relacionado = models.ForeignKey(item)
@@ -89,15 +90,14 @@ class subitem(models.Model):
 
     class Meta:
         verbose_name_plural = "Subitem"
+        db_table = 'subitem'
 
 class produto(models.Model):
     '''
         Os produtos pertencem a um determinado subgrupo, seu preco contarah para a elaboracao do peso desse subgrupo.
     '''
-
     nome = models.CharField(max_length=150)
     marca = models.CharField(max_length=150, blank=True)
-    preco = models.FloatField()
     data_verificacao = models.DateField()
     subitem_tipo = models.ForeignKey(subitem)
     ativo = models.BooleanField()
@@ -108,6 +108,7 @@ class produto(models.Model):
 
     class Meta:
         verbose_name_plural = "Produto"
+        db_table = 'produto'
 
 class perfil(models.Model):
     '''
@@ -120,13 +121,20 @@ class perfil(models.Model):
     def __unicode__(self):
         return self.nome_pesquisador
 
+    class Meta:
+        verbose_name_plural = "Perfil"
+        db_table = 'perfil'
+
 class estabelecimento(models.Model):
-    Nome                   = models.CharField(max_length=150)
-    Bairro                 = models.CharField(max_length=150)
-    Rua                    = models.CharField(max_length=150)
-    TeleFone               = models.CharField(max_length=150, blank=True)
-    Email                  = models.EmailField(blank=True)
-    usuario                = models.ForeignKey(User)
+    '''
+        Classe para o cadastramento da localizacao do estabelecimento
+    '''
+    Nome     = models.CharField(max_length=150)
+    Bairro   = models.CharField(max_length=150)
+    Rua      = models.CharField(max_length=150)
+    TeleFone = models.CharField(max_length=150, blank=True)
+    Email    = models.EmailField(blank=True)
+    usuario  = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.Nome
@@ -142,9 +150,10 @@ class rota(models.Model):
     Local_visitar        = models.ForeignKey(estabelecimento)
     Pesquisador          = models.ForeignKey(perfil)
     data_vizita          = models.DateField()
-    grupo__para_pesquisa = models.ForeignKey(pesos_grupos)
-    SubGrupoParaPesquisa = models.ForeignKey(subgrupo)
-    Item_pesquisado      = models.ForeignKey(item)
+    grupo__para_pesquisa = models.ManyToManyField(pesos_grupos)
+    SubGrupoParaPesquisa = models.ManyToManyField(subgrupo)
+    Item_pesquisado      = models.ManyToManyField(item)
+    subitem              = models.ManyToManyField(subitem)
     usuario              = models.ForeignKey(User)
 
     def __unicode__(self):
@@ -157,16 +166,10 @@ class ColetaPrecos(models.Model):
     """
         Responsavel pela coleta de precos dos produtos da pesquisa
     """
-    local               = models.ForeignKey(estabelecimento)
-    pesquisador         = models.ForeignKey(perfil)
-    grupo_pesquisa      = models.ForeignKey(pesos_grupos)
-    sub_grupo           = models.ForeignKey(subgrupo)
-    item_pesquisa       = models.ForeignKey(item)
-    subitem             = models.ManyToManyField(subitem)
+    local               = models.ForeignKey(rota)
     produto_de_pesquisa = models.ManyToManyField(produto)
-    quantidade          = models.IntegerField()
-    preco_quantidade_produto  = models.FloatField()
-    somatorio_precos = models.FloatField()
+    precos              = models.FloatField()
+    somatorio_precos    = models.FloatField()
     usuario             = models.ForeignKey(User)
 
     def __unicode__(self):
@@ -174,3 +177,4 @@ class ColetaPrecos(models.Model):
 
     class Meta:
         verbose_name_plural = "Coleta de precos"
+        db_table = 'coleta'

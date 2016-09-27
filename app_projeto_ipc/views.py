@@ -18,8 +18,6 @@ def acesso(request):
 
     return render_to_response("paginas_do_sistema/login.html")
 
-
-
 def apresentacao(request):
     usuario = None
     if request.user.is_authenticated():
@@ -140,4 +138,4 @@ def ColetaPrecos(request):
             item.save()
     else:
         form = FormColetaPrecos()
-    return render_to_response()
+    return render_to_response("coleta_precos/index.html",{"form":form}, context_instance = RequestContext(request))

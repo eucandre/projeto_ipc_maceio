@@ -103,15 +103,15 @@ class Formperfil(forms.ModelForm):
 
 class FormColetaPrecos(forms.ModelForm):
     
-    estabelecimento = forms.ModelChoiceField(queryset=estabelecimento.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Estabelecimento"}))
-    pesquisador = forms.ModelChoiceField(queryset=perfil.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Pesquisador"}))
-    grupo_pesquisa = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Grupo"}))
-    sub_grupo = forms.ModelChoiceField(queryset=subgrupo.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subgrupo"}))
-    item = forms.ModelChoiceField(queryset=item.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Item"}))
-    subitem = forms.ModelMultipleChoiceField(queryset=subitem.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subitem"}))
-    produto = forms.ModelMultipleChoiceField(queryset=produto.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Produto"}))
-    preco_quantidade_produto = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Preco produto"}))
-    quantidade = forms.IntegerField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Quantidade"}))
+    estabelecimento = forms.ModelChoiceField(queryset=rota.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Estabelecimento"}))
+    pesquisador = forms.CharField(queryset=rota.Pesquisador.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Pesquisador"}))
+    #grupo_pesquisa = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Grupo"}))
+    #sub_grupo = forms.ModelChoiceField(queryset=subgrupo.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subgrupo"}))
+    #item = forms.ModelChoiceField(queryset=item.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Item"}))
+    #subitem = forms.ModelMultipleChoiceField(queryset=subitem.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subitem"}))
+    produto_de_pesquisa = forms.ModelMultipleChoiceField(queryset=produto.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Produto"}))
+    preco_unidade_produto = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Preco produto"}))
+    #unidade = forms.IntegerField(help_text="UN, Kg, etc.",widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Quantidade"}))
     somatorio_precos = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Somatorio"}))
     
     class Meta:

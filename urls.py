@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^estabelecimento','app_projeto_ipc.views.estabelecimento'),
     url(r'^produto','app_projeto_ipc.views.produto'),
     url(r'^subitem','app_projeto_ipc.views.subitem'),
+    url(r'^coleta_precos','app_projeto_ipc.views.ColetaPrecos'),
     #
 
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"paginas_do_sistema/login.html"}),

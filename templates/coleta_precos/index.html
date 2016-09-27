@@ -1,0 +1,31 @@
+{% extends "arquivo_auxiliar/base.html" %}
+{% block usuario %}{{ usuario }}{% endblock %}
+{% block cabecalho1parte %}Coleta de preços{% endblock %}
+{% block cabecalho2parte %} Atualizaçao dos preços dos produtos{% endblock %}
+{% block corpo_1 %}
+	<form  method="post" action=".">
+    {% csrf_token %}
+    {{form.estabelecimento.label}}
+    {{form.estabelecimento}}<br >
+    {{form.pesquisador.label}}
+    {{form.pesquisador}}<br >
+    {{form.grupo_pesquisa.label}}
+    {{form.grupo_pesquisa}}<br >
+    {{form.sub_grupo.label}}
+    {{form.sub_grupo}}<br >
+    {{form.item.label}}
+    {{form.item}}<br >
+    {{form.subitem.label}}
+    {{form.subitem}}<br >
+    {{form.produto_de_pesquisa.label}}
+    {{form.produto_de_pesquisa}}<br >
+    {{form.preco_unidade_produto.label}}
+    {{form.preco_unidade_produto}}<br >
+    {{form.unidade.label}}
+    {{form.unidade}}
+    {{form.unidade.help_text}}<br >
+    {{form.somatorio_precos.label}}
+    {{form.somatorio_precos}}<br >
+    <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
+  </form>
+{% endblock %}
