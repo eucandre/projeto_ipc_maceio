@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+  <component name="DataSourceManagerImpl" format="xml" hash="0">
     <data-source source="LOCAL" name="Django default" uuid="9f4183aa-3a06-4744-8992-16ba430f7a92">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\eucandre\PycharmProjects\projeto_ipc_maceio\ipc.db</jdbc-url>
+      <libraries />
     </data-source>
   </component>
 </project>
