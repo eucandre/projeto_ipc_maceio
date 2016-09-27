@@ -104,7 +104,7 @@ class Formperfil(forms.ModelForm):
 class FormColetaPrecos(forms.ModelForm):
     
     estabelecimento = forms.ModelChoiceField(queryset=rota.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Estabelecimento"}))
-    pesquisador = forms.CharField(queryset=rota.Pesquisador.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Pesquisador"}))
+    pesquisador = forms.CharField(widget=forms.Select(attrs={"class":"form-control", "placeholder":"Pesquisador"}))
     #grupo_pesquisa = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Grupo"}))
     #sub_grupo = forms.ModelChoiceField(queryset=subgrupo.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subgrupo"}))
     #item = forms.ModelChoiceField(queryset=item.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Item"}))
