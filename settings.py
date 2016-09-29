@@ -1,7 +1,7 @@
 # Django settings for ipc project.
 import os
 
-ROOTDIR = os.path.realpath(__file__)
+ROOTDIR = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -52,7 +52,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = "C:/Users/eucandre/PycharmProjects/projeto_ipc_maceio/media"
+MEDIA_ROOT = os.path.join(ROOTDIR,'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
