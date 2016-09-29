@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^perfil/$','app_projeto_ipc.views.perfil'),
     url(r'^estabelecimento','app_projeto_ipc.views.estabelecimento'),
     url(r'^produto','app_projeto_ipc.views.produto'),
+    url(r'^item','app_projeto_ipc.views.item'),
     url(r'^subitem','app_projeto_ipc.views.subitem'),
     url(r'^coleta_precos','app_projeto_ipc.views.ColetaPrecos'),
     #

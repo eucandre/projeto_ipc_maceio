@@ -19,19 +19,15 @@ def acesso(request):
     return render_to_response("paginas_do_sistema/login.html")
 
 def apresentacao(request):
-    usuario = None
-    if request.user.is_authenticated():
-        usuario = request.user.username
-    return render_to_response("paginas_do_sistema/pagina_apresentacao.html",{"usuario":usuario})
+    return render_to_response("paginas_do_sistema/pagina_apresentacao.html",{})
 
 
 def sub_grupos(request):
-    if request.method == "post":
-        form = FormSubgrupo(request.FILES, request.POST)
+    if request.method == 'POST':
+        form = FormSubgrupo(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
+            return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FormSubgrupo()
     return render_to_response("paginas_do_sistema/subgrupos.html",{"form":form}, context_instance = RequestContext(request))
@@ -41,101 +37,79 @@ def pesos_grupos(request):
     '''
     Esta funcao ira guardar os pesos baseando-se na tabela pof. quem modifica esta funcao eh apenas o adm. geral.
     '''
-
-    usu = None
-    if request.user.is_authenticated():
-        usu = request.user.username
     if request.method == 'POST':
         form = FormPesos_grupos(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
             return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FormPesos_grupos()
-    return render_to_response("paginas_do_sistema/pesos_grupos.html",{"form":form,"usuario":usu}, context_instance = RequestContext(request))
+    return render_to_response("paginas_do_sistema/pesos_grupos.html",{"form":form}, context_instance = RequestContext(request))
 
 def criacao_rota(request):
-    usu = None
-    if request.user.is_authenticated():
-        usu = request.user.username
-    if request.method =="post":
+    if request.method =='POST':
         form = FORMrota(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
             return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FORMrota()
-    return render_to_response("paginas_da_rota/criar_rota.html",{"form":form, "usuario":usu} , context_instance = RequestContext(request))
+    return render_to_response("paginas_da_rota/criar_rota.html",{"form":form} , context_instance = RequestContext(request))
 
 
 def perfil(request):
-    usu = None
-    if request.user.is_authenticated():
-        usu = request.user.username
-    if request.method == "POST":
+    if request.method == 'POST':
         form  = Formperfil(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
     else:
         form = Formperfil()
-    return render_to_response("paginas_perfil/index.html",{"form":form, "usuario":usu}, context_instance = RequestContext(request))
+    return render_to_response("paginas_perfil/index.html",{"form":form}, context_instance = RequestContext(request))
 
 def estabelecimento(request):
-    if request.method=="post":
+    if request.method=='POST':
         form = FORMestabelecimento(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
     else:
         form = FORMestabelecimento()
     return render_to_response("paginas_estabelecimento/index.html",{"form":form}, context_instance = RequestContext(request))
 
 def item(request):
-    if request.method == "post":
+    if request.method == 'POST':
         form = FormItem(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
+            return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FormItem()
     return render_to_response("paginas_item/index.html" ,{"form":form}, context_instance = RequestContext(request))
 
 def subitem(request):
-    if request.method == "post":
-        form     = FormSubitem(request.POST, request.FILES)
+    if request.method == 'POST':
+        form  = FormSubitem(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
+            return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FormSubitem()
     return render_to_response("paginas_subitem/index.html",{"form":form}, context_instance = RequestContext(request) )
+    
 def produto(request):
-    if request.method =="post":
+    if request.method =='POST':
         form = FormProduto(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
+            return render_to_response("arquivo_auxiliar/salvo.html",{})
     else:
         form = FormProduto()
     return render_to_response("paginas_produtos/index.html", {"form":form}, context_instance = RequestContext(request))
 
 def ColetaPrecos(request):
-    if request.method =="post":
+    if request.method =='POST':
         form = FormColetaPrecos(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.usuario = request.user
-            item.save()
+            form.save()
     else:
         form = FormColetaPrecos()
     return render_to_response("coleta_precos/index.html",{"form":form}, context_instance = RequestContext(request))

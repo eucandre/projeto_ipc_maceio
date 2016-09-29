@@ -4,7 +4,7 @@ from django import forms
 from models import *
 from datetime import *
 
-GRUPOS = ((u'Aliemntacao_e_bebidas','1 - Aliemntacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
+GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
             (u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados_especiais'),
             (u'Despesas_pessoais','7 - Despesas pessoais'),(u'Educacao','8 - Educacao'),(u'Comunicacao','9 - Comunicao'))
 
@@ -24,7 +24,7 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Cuidados pessoais', '6.3 - Cuidados pessoais'),
              (u'Servicos_pessoais', '7.1 - Servicos pessoais'),
              (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
-             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos_leitura e papelaria'),
+             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
 VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
@@ -35,15 +35,14 @@ class FormPesos_grupos(forms.ModelForm):
 
     class Meta:
         model = pesos_grupos
-        fields = ['grupo','peso']#,'usuario']
 
 class FormSubgrupo(forms.ModelForm):
     nome_subgrupo = forms.ChoiceField(choices=SUBGRUPOS , widget=forms.Select(attrs={"class":"form-control"}))
     peso_subgrupo = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
     grupo_relacionado = forms.ModelChoiceField(queryset=pesos_grupos.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
+    data_verificacao_peso = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control", "placeholder":"DD/MM/AAAA"}))
     class Meta:
         model = subgrupo
-        fields = ['usuario']
 
 class FormItem(forms.ModelForm):
     nome_item = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -52,12 +51,14 @@ class FormItem(forms.ModelForm):
     data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control", "placeholder":"DD/MM/AAAA"}))
     class Meta:
         model = item
-        fields = ['usuario']
 
 class FormSubitem(forms.ModelForm):
+    nome_subitem = forms.CharField(max_length=150,widget=forms.TextInput(attrs={"class":"form-control"}))
+    peso_subitem = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))#valor dados a partir de uma funcao
+    item_relacionado = forms.ModelChoiceField(queryset=item.objects.all(), widget= forms.Select(attrs={"class":"form-control"}))
+
     class Meta:
         model = subitem
-        fields = ['usuario']
 
 class FormProduto(forms.ModelForm):
     nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -65,10 +66,9 @@ class FormProduto(forms.ModelForm):
     preco = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control"}))
     data_verificacao = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control", "placeholder":"DD/MM/AAAA"}))
     sub_item = forms.ModelChoiceField(queryset=subitem.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
-    ativo = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}), help_text="Se o produto esta ativo")
+    ativo = forms.BooleanField(required=False, initial=False ,widget=forms.CheckboxInput(attrs={"class":"checkbox"}), help_text="Se o produto esta ativo")
     class Meta:
         model = produto
-        fields = ['usuario']
 
 class FORMestabelecimento(forms.ModelForm):
     Nome = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control", "label":"Nome"}))
@@ -79,7 +79,6 @@ class FORMestabelecimento(forms.ModelForm):
 
     class Meta:
         model = estabelecimento
-        fields = ['usuario']
 
 class FORMrota(forms.ModelForm):
     local_visitar = forms.ModelChoiceField(queryset=estabelecimento.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
@@ -90,7 +89,6 @@ class FORMrota(forms.ModelForm):
     item_pesquisa = forms.ModelChoiceField(queryset=item.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
     class Meta:
         model = rota
-        fields =['usuario']
 
 
 class Formperfil(forms.ModelForm):
@@ -98,7 +96,6 @@ class Formperfil(forms.ModelForm):
     vinculo = forms.ChoiceField(choices=VINCULO, widget=forms.Select(attrs={"class":"form-control", "placeholder":"Vinculo"}))
     class Meta:
         model = perfil
-        fields = ['usuario']
 
 
 class FormColetaPrecos(forms.ModelForm):
@@ -109,11 +106,10 @@ class FormColetaPrecos(forms.ModelForm):
     #sub_grupo = forms.ModelChoiceField(queryset=subgrupo.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subgrupo"}))
     #item = forms.ModelChoiceField(queryset=item.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Item"}))
     #subitem = forms.ModelMultipleChoiceField(queryset=subitem.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Subitem"}))
-    produto_de_pesquisa = forms.ModelMultipleChoiceField(queryset=produto.objects.all(),widget=forms.Select(attrs={"class":"form-control", "placeholder":"Produto"}))
+    produto_de_pesquisa = forms.ModelMultipleChoiceField(queryset=produto.objects.all(),widget=forms.CheckboxSelectMultiple())
     preco_unidade_produto = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Preco produto"}))
     #unidade = forms.IntegerField(help_text="UN, Kg, etc.",widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Quantidade"}))
     somatorio_precos = forms.FloatField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Somatorio"}))
     
     class Meta:
         model = ColetaPrecos
-        fields =['usuario']

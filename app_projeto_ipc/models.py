@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import *
 
-GRUPOS = ((u'Aliemntacao_e_bebidas','1 - Aliemntacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
-(u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados_especiais'),
+GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
+(u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados especiais'),
 (u'Despesas_pessoais','7 - Despesas pessoais'),(u'Educacao','8 - Educacao'),(u'Comunicacao','9 - Comunicao'))
 
 SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
@@ -21,7 +21,7 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Cuidados pessoais', '6.3 - Cuidados pessoais'),
              (u'Servicos_pessoais', '7.1 - Servicos pessoais'),
              (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
-             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos_leitura e papelaria'),
+             (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
 VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
@@ -33,8 +33,7 @@ class pesos_grupos(models.Model):
     '''
     grupo = models.CharField(choices=GRUPOS, max_length=150)
     peso = models.FloatField()
-    usuario = models.ForeignKey(User)
-
+    
     def __unicode__(self):
         return self.grupo
 
@@ -47,10 +46,10 @@ class subgrupo(models.Model):
          O peso dos subgrupos eh composto pela soma dos pesos dos itens.
     '''
     nome_subgrupo = models.CharField(max_length=150, choices=SUBGRUPOS)
-    peso_subgrupo = models.FloatField(verbose_name="peso do subgrupo")#este campo recebera automaticamente a soma da classe itens.
+    peso_subgrupo = models.FloatField()#este campo recebera automaticamente a soma da classe itens.
     data_verificacao_peso = models.DateField()
     grupo_relacionado = models.ForeignKey(pesos_grupos)
-    usuario = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.nome_subgrupo
@@ -67,7 +66,7 @@ class item(models.Model):
     sub_grupo = models.ForeignKey(subgrupo)
     peso = models.FloatField()#valor dado por automatizacao
     data_verificacao = models.DateField()
-    usuario = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.nome_item
@@ -83,7 +82,7 @@ class subitem(models.Model):
     nome_subitem = models.CharField(max_length=150)
     peso_subitem = models.FloatField(verbose_name="peso do subitem")#valor dados a partir de uma funcao
     item_relacionado = models.ForeignKey(item)
-    usuario = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.nome_subitem
@@ -100,8 +99,8 @@ class produto(models.Model):
     marca = models.CharField(max_length=150, blank=True)
     data_verificacao = models.DateField()
     subitem_tipo = models.ForeignKey(subitem)
-    ativo = models.BooleanField()
-    usuario = models.ForeignKey(User)
+    ativo = models.BooleanField(default=False)
+    
 
     def __unicode__(self):
         return self.nome
@@ -116,7 +115,7 @@ class perfil(models.Model):
     '''
     nome_pesquisador = models.CharField(max_length=150)
     vinculo = models.CharField(choices=VINCULO, max_length=150)
-    usuario = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.nome_pesquisador
@@ -134,7 +133,7 @@ class estabelecimento(models.Model):
     Rua      = models.CharField(max_length=150)
     TeleFone = models.CharField(max_length=150, blank=True)
     Email    = models.EmailField(blank=True)
-    usuario  = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.Nome
@@ -154,7 +153,7 @@ class rota(models.Model):
     SubGrupoParaPesquisa = models.ManyToManyField(subgrupo)
     Item_pesquisado      = models.ManyToManyField(item)
     subitem              = models.ManyToManyField(subitem)
-    usuario              = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.Local_visitar
@@ -170,7 +169,7 @@ class ColetaPrecos(models.Model):
     produto_de_pesquisa = models.ManyToManyField(produto)
     precos              = models.FloatField()
     somatorio_precos    = models.FloatField()
-    usuario             = models.ForeignKey(User)
+    
 
     def __unicode__(self):
         return self.local
