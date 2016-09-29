@@ -24,7 +24,7 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
-VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
+VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
 
 class pesos_grupos(models.Model):
     '''
@@ -144,7 +144,7 @@ class estabelecimento(models.Model):
 
 class rota(models.Model):
     '''
-        Seleciona a rota a ser seguida.
+        Seleciona a rota a ser seguida, esta classe tera uma funcionalidade automatizada.
     '''
     Local_visitar        = models.ForeignKey(estabelecimento)
     Pesquisador          = models.ForeignKey(perfil)
