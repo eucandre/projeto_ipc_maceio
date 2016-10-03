@@ -9,21 +9,12 @@ urlpatterns = patterns('',
     # url(r'^$', 'ipc.views.home', name='home'),
     # url(r'^ipc/', include('ipc.foo.urls')),
     #url(r'^$','app_ipc.views.acesso'),
-    url(r'^$','app_projeto_ipc.views.apresentacao'),
-    url(r'^sub_grupos/$','app_projeto_ipc.views.sub_grupos'),
-    url(r'^peso_grupos/$','app_projeto_ipc.views.pesos_grupos'),
+    url(r'^$','app_projeto_ipc.views.acesso'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     #-----------Rota------------------
-    url(r'^cria_rota/$','app_projeto_ipc.views.criacao_rota'),
-    url(r'^perfil/$','app_projeto_ipc.views.perfil'),
-    url(r'^estabelecimento','app_projeto_ipc.views.estabelecimento'),
-    url(r'^produto','app_projeto_ipc.views.produto'),
-    url(r'^item','app_projeto_ipc.views.item'),
-    url(r'^subitem','app_projeto_ipc.views.subitem'),
-    url(r'^coleta_precos','app_projeto_ipc.views.ColetaPrecos'),
     #
 
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"paginas_do_sistema/login.html"}),

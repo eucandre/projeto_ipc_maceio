@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import *
+from sphinx.builders.gettext import I18nBuilder
 
 GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
 (u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados especiais'),
@@ -20,160 +21,61 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Servicos_de_saude', '6.2 - Servicos de saude'),
              (u'Cuidados pessoais', '6.3 - Cuidados pessoais'),
              (u'Servicos_pessoais', '7.1 - Servicos pessoais'),
-             (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao_fumo e fotografia'),
+             (u'Recreacao_fumo_e_fotografia', '7.2 - Recreacao fumo e fotografia'),
              (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
 VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
+ATIVO = ((u'Ativo','Ativo'), (u'Desativado','Desativado'))
 
-class pesos_grupos(models.Model):
+class Item(models.Model):
     '''
-        A finalidade desta classe eh possibilitar a atribuicao dos pesos dos grupos, quando necessario a mudanca, sem a necessidade
-    de mexer em linha de codigo e permitir que o administrador do projeto edite sem prejuizo ao sistema.
+        Cada item pertence a um subgrupo, os itens possuem pesos determinados a partir do valor dos precos dos subitem.
+        O valor do weight(peso) de cada item eh dado automaticamente. Este modulo eh para administracao do sistema ipc.
+        Atualizado todo inicio de mes o peso de cada item.
     '''
-    grupo = models.CharField(choices=GRUPOS, max_length=150)
-    peso = models.FloatField()
-    
-    def __unicode__(self):
-        return self.grupo
-
-    class Meta:
-        verbose_name_plural = "Pesos grupos"
-        db_table = 'grupo'
-
-class subgrupo(models.Model):
-    '''
-         O peso dos subgrupos eh composto pela soma dos pesos dos itens.
-    '''
-    nome_subgrupo = models.CharField(max_length=150, choices=SUBGRUPOS)
-    peso_subgrupo = models.FloatField()#este campo recebera automaticamente a soma da classe itens.
-    data_verificacao_peso = models.DateField()
-    grupo_relacionado = models.ForeignKey(pesos_grupos)
-    
+    name = models.CharField(max_length=150)
+    weight = models.FloatField()
+    sub_group = models.CharField(max_length=150, choices=SUBGRUPOS)
+    date = models.DateField(auto_now=True)
 
     def __unicode__(self):
-        return self.nome_subgrupo
+        return self.name
 
     class Meta:
-        verbose_name_plural = "Subgrupos"
-        db_table = 'subgrupo'
-
-class item(models.Model):
-    '''
-        Sao compostos por subitens
-    '''
-    nome_item = models.CharField(max_length=150)
-    sub_grupo = models.ForeignKey(subgrupo)
-    peso = models.FloatField()#valor dado por automatizacao
-    data_verificacao = models.DateField()
-    
-
-    def __unicode__(self):
-        return self.nome_item
-
-    class Meta:
-        verbose_name_plural = "Item"
+        verbose_name_plural = 'Item, servicos ou produtos ao consumidor'
         db_table = 'item'
 
-class subitem(models.Model):
+class Subitem(models.Model):
     '''
-        Cada subitem possui seu pesso, baseando-se na tabela da POF, subitem composto por produto.
+        Os subitem constituem os Item, sao constituidos dos pesos dos products, weight(peso) eh dado automaticamente.
     '''
-    nome_subitem = models.CharField(max_length=150)
-    peso_subitem = models.FloatField(verbose_name="peso do subitem")#valor dados a partir de uma funcao
-    item_relacionado = models.ForeignKey(item)
-    
+    name = models.CharField(max_length=150)
+    weight = models.FloatField()
+    item = models.ForeignKey(Item)
+    date = models.DateField(auto_now=True)
 
     def __unicode__(self):
-        return self.nome_subitem
+        return self.name
 
     class Meta:
-        verbose_name_plural = "Subitem"
-        db_table = 'subitem'
+        verbose_name_plural = 'Sub-itens para produtos e servicos'
 
-class produto(models.Model):
+class Product(models.Model):
     '''
-        Os produtos pertencem a um determinado subgrupo, seu preco contarah para a elaboracao do peso desse subgrupo.
+        Cadastramento e busca de produtos e servicos disponiveis no mercado.
+        Cada produto pertence a um tipo de item, exemplo de itens: Cereais, mecanica, etc.
     '''
-    nome = models.CharField(max_length=150)
-    marca = models.CharField(max_length=150, blank=True)
-    data_verificacao = models.DateField()
-    subitem_tipo = models.ForeignKey(subitem)
-    ativo = models.BooleanField(default=False)
-    
+    name = models.CharField(max_length=150)
+    mark = models.CharField(max_length=150)
+    item = models.ForeignKey(Item)
+    active = models.CharField(choices=ATIVO, max_length=150)
 
     def __unicode__(self):
-        return self.nome
+        return self.name
 
     class Meta:
-        verbose_name_plural = "Produto"
+        verbose_name_plural = 'Produtos e servicos para o consumidor'
         db_table = 'produto'
 
-class perfil(models.Model):
-    '''
-        Esta classe tem a funcionalidade de cadastrar o perfil dos participantes do ipc para controlar as pesquisas realizadas.
-    '''
-    nome_pesquisador = models.CharField(max_length=150)
-    vinculo = models.CharField(choices=VINCULO, max_length=150)
-    
 
-    def __unicode__(self):
-        return self.nome_pesquisador
-
-    class Meta:
-        verbose_name_plural = "Perfil"
-        db_table = 'perfil'
-
-class estabelecimento(models.Model):
-    '''
-        Classe para o cadastramento da localizacao do estabelecimento
-    '''
-    Nome     = models.CharField(max_length=150)
-    Bairro   = models.CharField(max_length=150)
-    Rua      = models.CharField(max_length=150)
-    TeleFone = models.CharField(max_length=150, blank=True)
-    Email    = models.EmailField(blank=True)
-    
-
-    def __unicode__(self):
-        return self.Nome
-
-    class Meta:
-        verbose_name_plural = "Estabelecimento"
-        db_table = "estabalecimento"
-
-class rota(models.Model):
-    '''
-        Seleciona a rota a ser seguida, esta classe tera uma funcionalidade automatizada.
-    '''
-    Local_visitar        = models.ForeignKey(estabelecimento)
-    Pesquisador          = models.ForeignKey(perfil)
-    data_vizita          = models.DateField()
-    grupo__para_pesquisa = models.ManyToManyField(pesos_grupos)
-    SubGrupoParaPesquisa = models.ManyToManyField(subgrupo)
-    Item_pesquisado      = models.ManyToManyField(item)
-    subitem              = models.ManyToManyField(subitem)
-    
-
-    def __unicode__(self):
-        return self.Local_visitar
-
-    class Meta:
-        verbose_name_plural = "Rota da pesquisa"
-
-class ColetaPrecos(models.Model):
-    """
-        Responsavel pela coleta de precos dos produtos da pesquisa
-    """
-    local               = models.ForeignKey(rota)
-    produto_de_pesquisa = models.ManyToManyField(produto)
-    precos              = models.FloatField()
-    somatorio_precos    = models.FloatField()
-    
-
-    def __unicode__(self):
-        return self.local
-
-    class Meta:
-        verbose_name_plural = "Coleta de precos"
-        db_table = 'coleta'
