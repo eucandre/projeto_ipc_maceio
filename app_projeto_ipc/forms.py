@@ -46,7 +46,15 @@ class FormProfile(forms.ModelForm):
     since = forms.DateField(label='Liagado desde',widget=forms.DateInput(attrs={'class':'form-control','placeholder':'Data de entrada no ipc'}))
     bond = forms.ChoiceField(choices=VINCULO,label='Vinculo',widget=forms.RadioSelect(attrs={'class':'checkbox-inline'}))
     active = forms.ChoiceField(choices=ATIVO, label='Situacao',widget=forms.RadioSelect(attrs={'class':'checkbox-inline'}))
+
     class Meta:
         model = Profile
         fields = ['name', 'since', 'bond', 'active']
 
+class FormGroup(forms.ModelForm):
+    name = forms.ChoiceField(choices=GRUPOS, label='Nome',widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Nome do grupo'}))
+    weight = forms.CharField(max_length=150, label='Peso',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso do grupo'}))
+    date = forms.DateField(label='Data do registro',widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+    class Meta:
+        model = Group
+        fields = ['name', 'weight', 'date']

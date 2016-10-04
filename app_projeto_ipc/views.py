@@ -37,3 +37,13 @@ def PerfilCadastro(request):
     else:
         form = FormProfile()
     return render_to_response('paginas_perfil/index.html', {'form':form}, RequestContext(request))
+
+def GrupoCadastro(request):
+    if request.method == 'POST':
+        form = FormGroup(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormGroup()
+    return render_to_response('paginas_do_sistema/grupos.html', {'form':form}, RequestContext(request))
