@@ -7,10 +7,7 @@
 
     <form action="." method="post">
         {% csrf_token %}
-        {{ form.nome_pesquisador.label }}
-        {{ form.nome_pesquisador }}<br >
-        {{ form.vinculo.label }}
-        {{ form.vinculo }}<br >
+        {{ form.as_p }}
         <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>
 

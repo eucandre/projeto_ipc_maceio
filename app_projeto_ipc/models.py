@@ -25,7 +25,7 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
-VINCULO = ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
+VINCULO = ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Estagiario','Estagiario'))
 ATIVO = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
 
 class Establishment(models.Model):

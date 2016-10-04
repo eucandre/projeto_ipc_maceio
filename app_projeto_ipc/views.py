@@ -27,3 +27,13 @@ def EstabelecimentoCadastro(request):
     else:
         form = FormEstablishment()
     return render_to_response('paginas_estabelecimento/index.html', {'form':form}, RequestContext(request))
+
+def PerfilCadastro(request):
+    if request.method == 'POST':
+        form = FormProfile(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormProfile()
+    return render_to_response('paginas_perfil/index.html', {'form':form}, RequestContext(request))
