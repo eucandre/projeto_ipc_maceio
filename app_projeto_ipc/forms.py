@@ -28,4 +28,15 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
 VINCULO =  ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'))
+ATIVO = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
 
+class FormEstablishment(forms.ModelForm):
+    name = forms.CharField(max_length=150, label='Nome',widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nome do estabelecimento'}))
+    street = forms.CharField(max_length=150, label='Rua' , widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Rua do estabelecimento'}))
+    neighborhood = forms.CharField(max_length=150, label='Bairro',widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Bairro do estabelecimento'}))
+    email = forms.CharField(max_length=150, label='E-mail',widget=forms.TextInput(attrs={'class':'form-control','placeholder':'E-mail do estabelecimento'}))
+    phone = forms.CharField(max_length=150, label='Telefone',widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Telefone do estabelecimento'}))
+    active = forms.ChoiceField(choices=ATIVO, label='Situacao',widget=forms.RadioSelect(attrs={'class':'checkbox-inline'}))
+    class Meta:
+        model = Establishment
+        fields = ['name', 'street', 'neighborhood', 'email','phone', 'active']

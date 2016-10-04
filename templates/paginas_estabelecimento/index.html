@@ -8,17 +8,7 @@
 
       <form action="." method="post">
           {% csrf_token %}
-          {{ form.Nome.label }}
-          {{ form.Nome }}<br >
-          {{ form.Bairro.label }}
-          {{ form.Bairro }}<br >
-          {{ form.Rua.label }}
-          {{ form.Rua }}<br >
-          {{ form.TeleFone.label }}
-          {{ form.TeleFone }}<br >
-          {{ form.Email.label }}
-          {{ form.Email }}<br >
-
+          {{ form.as_p }}
         <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>
 

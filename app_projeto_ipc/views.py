@@ -18,3 +18,12 @@ def acesso(request):
 
     return render_to_response('paginas_do_sistema/login.html')
 
+def EstabelecimentoCadastro(request):
+    if request.method == 'POST':
+        form = FormEstablishment(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormEstablishment()
+    return render_to_response('paginas_estabelecimento/index.html', {'form':form}, RequestContext(request))

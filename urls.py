@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^ipc/', include('ipc.foo.urls')),
     #url(r'^$','app_ipc.views.acesso'),
     url(r'^$','app_projeto_ipc.views.acesso'),
+    url(r'^estabelecimento', 'app_projeto_ipc.views.EstabelecimentoCadastro'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

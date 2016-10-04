@@ -112,7 +112,7 @@ class SubGroup(models.Model):
 
     name = models.CharField(choices=GRUPOS, max_length=150)
     weight = models.FloatField(Group)
-    group = models.ForeignKey(Gr)
+    group = models.ForeignKey(Group)
     date = models.DateField(auto_now=True)
 
     def __unicode__(self):
@@ -142,5 +142,8 @@ class Rout(models.Model):
     establishment = models.ForeignKey(Establishment)
     product_to_search = models.ManyToManyField(Product)
     date = models.DateField(auto_now=True)
+
+    def __unicode__(self):
+        return self.researcher
 
 
