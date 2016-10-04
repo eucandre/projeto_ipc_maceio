@@ -121,7 +121,7 @@ class SubGroup(models.Model):
     class Meta:
         verbose_name_plural = 'Subgrupos de itens para produtos e servicos'
 
-class profile(models.Model):
+class Profile(models.Model):
     '''
         Cadastro de participadores do ipc.
         Possui ligacao, desde quando estah ativo e se esta ativo.
@@ -137,5 +137,10 @@ class profile(models.Model):
     class Meta:
         verbose_name_plural = 'Perfil de usuarios do sistema do ipc maceio'
 
+class Rout(models.Model):
+    researcher = models.ForeignKey(Profile)
+    establishment = models.ForeignKey(Establishment)
+    product_to_search = models.ManyToManyField(Product)
+    date = models.DateField(auto_now=True)
 
 
