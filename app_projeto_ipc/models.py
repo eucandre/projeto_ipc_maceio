@@ -30,7 +30,7 @@ ATIVO = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
 
 class Establishment(models.Model):
     '''
-
+        Esta estrutura conta com o endereco fisico e o contato do estabelecimento, marca se o mesmo ainda esta ativo.
     '''
     name = models.CharField(max_length=150)
     street = models.CharField(max_length=150)
@@ -38,11 +38,13 @@ class Establishment(models.Model):
     email = models.EmailField(blank=True)
     telphone = models.CharField(max_length=150)
     active = models.CharField(choices=ATIVO, max_length=150)
+
     def __unicode__(self):
         return self.name
 
     class Meta:
         verbose_name_plural = 'Estabelecimentos com enderecos e contatos'
+
 class Item(models.Model):
     '''
         Cada item pertence a um subgrupo, os itens possuem pesos determinados a partir do valor dos precos dos subitem.
