@@ -40,3 +40,7 @@ class FormEstablishment(forms.ModelForm):
     class Meta:
         model = Establishment
         fields = ['name', 'street', 'neighborhood', 'email','phone', 'active']
+
+class FormProfile(forms.ModelForm):
+    name = forms.CharField(max_length=150, label='Nome', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do perfil'}))
+    bond = forms.ChoiceField(choices=VINCULO, label='Situacao',widget=forms.RadioSelect(attrs={'class':'checkbox-inline'}))
