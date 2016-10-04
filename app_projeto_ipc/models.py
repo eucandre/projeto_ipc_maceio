@@ -26,7 +26,7 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
 VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
-ATIVO = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
+ATIVO   = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
 
 class Establishment(models.Model):
     '''
@@ -36,7 +36,7 @@ class Establishment(models.Model):
     street = models.CharField(max_length=150)
     neighborhood = models.CharField(max_length=150)
     email = models.EmailField(blank=True)
-    telphone = models.CharField(max_length=150)
+    phone = models.CharField(max_length=150)
     active = models.CharField(choices=ATIVO, max_length=150)
 
     def __unicode__(self):
@@ -96,5 +96,24 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Produtos e servicos para o consumidor'
         db_table = 'produto'
+
+class Group(models.Model):
+    name = models.CharField(choices=GRUPOS, max_length=150)
+    weight = models.FloatField()
+    date = models.DateField()
+
+class SubGroup(models.Model):
+
+    name = models.CharField(choices=GRUPOS, max_length=150)
+    weight = models.FloatField(Group)
+    group = models.ForeignKey(Gr)
+    date = models.DateField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Subgrupos de itens para produtos e servicos'
+
 
 
