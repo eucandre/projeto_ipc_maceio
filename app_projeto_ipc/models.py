@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import *
-from sphinx.builders.gettext import I18nBuilder
+
 
 GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
 (u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados especiais'),
@@ -25,8 +25,8 @@ SUBGRUPOS = ((u'Alimentacao_no_domicilio', '1.1 - Alimentacao no domicilio'),
              (u'Cursos_leitura_e_papelaria', '8.1 - Cursos leitura e papelaria'),
              (u'Comunicacao', '9.1 - Comunicacao'))
 
-VINCULO =    ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
-ATIVO   = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
+VINCULO = ((u'Bolsista','Bolsista'),(u'Comissionado','Comissionado'), (u'Efetivo', 'Efetivo'), (u'Bolsista','Bolsista'))
+ATIVO = ((u'Ativo','Ativo'), (u'Inativo','Inativo'))
 
 class Establishment(models.Model):
     '''
@@ -102,6 +102,12 @@ class Group(models.Model):
     weight = models.FloatField()
     date = models.DateField()
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Grupo de itens de produtos e de servicos para o consumidor'
+
 class SubGroup(models.Model):
 
     name = models.CharField(choices=GRUPOS, max_length=150)
@@ -114,6 +120,22 @@ class SubGroup(models.Model):
 
     class Meta:
         verbose_name_plural = 'Subgrupos de itens para produtos e servicos'
+
+class profile(models.Model):
+    '''
+        Cadastro de participadores do ipc.
+        Possui ligacao, desde quando estah ativo e se esta ativo.
+    '''
+    name = models.CharField(max_length=150)
+    bond = models.CharField(max_length=150, choices=VINCULO)
+    since = models.DateField()
+    active = models.CharField(choices=ATIVO, max_length=150)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Perfil de usuarios do sistema do ipc maceio'
 
 
 
