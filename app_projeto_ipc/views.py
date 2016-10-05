@@ -58,3 +58,22 @@ def SubgrupoCadastro(request):
         form = FormSubgrupo()
     return render_to_response('paginas_do_sistema/subgrupos.html', {'form':form}, RequestContext(request))
 
+def ItemCadastro(request):
+    if request.method == 'POST':
+        form = FormItem(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormItem()
+    return render_to_response('paginas_item/index.html', {'form':form}, RequestContext(request))
+
+def SubitemCadastro(request):
+    if request.method == 'POST':
+        form = FormSubitem(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormSubitem()
+    return render_to_response('paginas_subitem/index.html', {'form':form}, RequestContext(request))

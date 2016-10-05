@@ -68,11 +68,21 @@ class FormSubgrupo(forms.ModelForm):
         model = SubGroup
         fields = ['name', 'weight', 'group','date']
 
+class FormItem(forms.ModelForm):
+    name = forms.CharField(max_length=150, label='Nome',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do Item'}))
+    weight = forms.CharField(max_length=150, label='Peso',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso do item'}))
+    sub_grupo = forms.ModelChoiceField(queryset=SubGroup.objects.all(), widget=forms.Select(attrs={'class':'form-control', 'placeholder':'Subgrupo relacionado'}))
+    date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+    class Meta:
+        model = Item
+        fields = ['name','weight','sub_group','date']
+
 class FormSubitem(forms.ModelForm):
     name = forms.CharField(max_length=150, label='Nome',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do Sub-item'}))
-    weight = forms.CharField(max_length=150, label='Peso',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso do item'}))
+    weight = forms.CharField(max_length=150, label='Peso',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso do subitem'}))
     item = forms.ModelChoiceField(queryset=Item.objects.all(), widget=forms.Select(attrs={'class':'form-control', 'placeholder':'Item relacionado'}))
     date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+
     class Meta:
         model = Subitem
         fields = ['name','weight','item', 'date']

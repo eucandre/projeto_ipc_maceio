@@ -45,6 +45,30 @@ class Establishment(models.Model):
     class Meta:
         verbose_name_plural = 'Estabelecimentos com enderecos e contatos'
 
+class Group(models.Model):
+    name = models.CharField(choices=GRUPOS, max_length=150)
+    weight = models.FloatField()
+    date = models.DateField()
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Grupo de itens de produtos e de servicos para o consumidor'
+
+class SubGroup(models.Model):
+
+    name = models.CharField(choices=GRUPOS, max_length=150)
+    weight = models.FloatField(Group)
+    group = models.ForeignKey(Group)
+    date = models.DateField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Subgrupos de itens para produtos e servicos'
+
 class Item(models.Model):
     '''
         Cada item pertence a um subgrupo, os itens possuem pesos determinados a partir do valor dos precos dos subitem.
@@ -53,7 +77,7 @@ class Item(models.Model):
     '''
     name = models.CharField(max_length=150)
     weight = models.FloatField()
-    sub_group = models.CharField(max_length=150, choices=SUBGRUPOS)
+    sub_group = models.ForeignKey(SubGroup)
     date = models.DateField(auto_now=True)
 
     def __unicode__(self):
@@ -96,30 +120,6 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Produtos e servicos para o consumidor'
         db_table = 'produto'
-
-class Group(models.Model):
-    name = models.CharField(choices=GRUPOS, max_length=150)
-    weight = models.FloatField()
-    date = models.DateField()
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'Grupo de itens de produtos e de servicos para o consumidor'
-
-class SubGroup(models.Model):
-
-    name = models.CharField(choices=GRUPOS, max_length=150)
-    weight = models.FloatField(Group)
-    group = models.ForeignKey(Group)
-    date = models.DateField(auto_now=True)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'Subgrupos de itens para produtos e servicos'
 
 class Profile(models.Model):
     '''
