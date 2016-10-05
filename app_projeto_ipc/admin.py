@@ -3,8 +3,8 @@ from app_projeto_ipc.models import *
 
 admin.site.register(SubGroup)
 admin.site.register(Group)
-#admin.site.register(item)
-#admin.site.register(subitem)
+admin.site.register(Item)
+admin.site.register(Subitem)
 admin.site.register(Profile)
 admin.site.register(Establishment)
 #admin.site.register(produto)

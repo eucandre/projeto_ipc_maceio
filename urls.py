@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^subgrupo', 'app_projeto_ipc.views.SubgrupoCadastro'),
     url(r'^subitem', 'app_projeto_ipc.views.SubitemCadastro'),
     url(r'^item', 'app_projeto_ipc.views.ItemCadastro'),
+    url(r'^produto', 'app_projeto_ipc.views.ProdutoCadastro'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

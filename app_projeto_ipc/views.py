@@ -77,3 +77,13 @@ def SubitemCadastro(request):
     else:
         form = FormSubitem()
     return render_to_response('paginas_subitem/index.html', {'form':form}, RequestContext(request))
+
+def ProdutoCadastro(request):
+    if request.method == 'POST':
+        form = FormProduto(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormProduto()
+    return render_to_response('paginas_produtos/index.html', {'form':form}, RequestContext(request))

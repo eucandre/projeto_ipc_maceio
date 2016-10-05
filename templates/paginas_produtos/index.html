@@ -6,19 +6,7 @@
 {% block corpo_1 %}
         <form action="." method="post">
             {% csrf_token %}
-            {{ form.nome.label }}
-            {{ form.nome }}<br >
-            {{ form.marca.label }}
-            {{ form.marca }}<br >
-            {{ form.data_verificacao.label }}
-            {{ form.data_verificacao }}<br >
-            {{ form.preco.label }}
-            {{ form.preco }}<br >
-            {{ form.sub_item.label }}
-            {{ form.sub_item }}<br >
-            {{ form.ativo.label }}
-            {{ form.ativo }}<div style="color: red;">{{ form.ativo.help_text }}</div>
-
+            {{ form.as_p}}
         <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>
 
