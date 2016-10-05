@@ -57,3 +57,4 @@ def SubgrupoCadastro(request):
     else:
         form = FormSubgrupo()
     return render_to_response('paginas_do_sistema/subgrupos.html', {'form':form}, RequestContext(request))
+
