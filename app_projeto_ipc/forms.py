@@ -58,3 +58,12 @@ class FormGroup(forms.ModelForm):
     class Meta:
         model = Group
         fields = ['name', 'weight', 'date']
+
+class FormSubgrupo(forms.ModelForm):
+    name = forms.ChoiceField(choices=SUBGRUPOS, label='Nome',widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Nome do Sub-grupo'}))
+    weight = forms.CharField(max_length=150, label='Peso',widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso do grupo'}))
+    group = forms.ModelChoiceField(queryset=Group.objects.all(), widget=forms.Select(attrs={'class':'form-control', 'placeholder':'Grupo relacionado'}))
+    date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+    class Meta:
+        model = SubGroup
+        fields = ['name', 'weight', 'group','date']

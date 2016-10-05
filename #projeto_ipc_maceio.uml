@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#projeto_ipc_maceio</OriginalElement>
+  <nodes>
+    <node x="449.54166666666663" y="0.0">app_projeto_ipc.models.Item</node>
+    <node x="0.0" y="238.0">app_projeto_ipc.models.SubGroup</node>
+    <node x="0.0" y="81.0">app_projeto_ipc.models.Establishment</node>
+    <node x="331.0" y="162.0">app_projeto_ipc.models.Rout</node>
+    <node x="320.0" y="81.0">app_projeto_ipc.models.Product</node>
+    <node x="874.0" y="81.0">app_projeto_ipc.models.Profile</node>
+    <node x="0.0" y="314.0">app_projeto_ipc.models.Group</node>
+    <node x="596.0" y="81.0">app_projeto_ipc.models.Subitem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Profile">
+      <point x="78.0" y="-15.5" />
+      <point x="526.0" y="137.0" />
+      <point x="997.5" y="137.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Product">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="app_projeto_ipc.models.Subitem" target="app_projeto_ipc.models.Item">
+      <point x="0.0" y="-15.5" />
+      <point x="725.0" y="56.0" />
+      <point x="623.5416666666666" y="56.0" />
+      <point x="58.0" y="15.5" />
+    </edge>
+    <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Establishment">
+      <point x="-78.0" y="-15.5" />
+      <point x="370.0" y="137.0" />
+      <point x="150.0" y="137.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="app_projeto_ipc.models.Product" target="app_projeto_ipc.models.Item">
+      <point x="0.0" y="-15.5" />
+      <point x="448.0" y="56.0" />
+      <point x="507.54166666666663" y="56.0" />
+      <point x="-58.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9561787905346187" x="560.5" y="153.10953253895508" />
+  <SelectedNodes>
+    <node>app_projeto_ipc.models.Subitem</node>
+  </SelectedNodes>
+  <Categories />
+</Diagram>
+

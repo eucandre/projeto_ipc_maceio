@@ -47,3 +47,13 @@ def GrupoCadastro(request):
     else:
         form = FormGroup()
     return render_to_response('paginas_do_sistema/grupos.html', {'form':form}, RequestContext(request))
+
+def SubgrupoCadastro(request):
+    if request.method == 'POST':
+        form = FormSubgrupo(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormSubgrupo()
+    return render_to_response('paginas_do_sistema/subgrupos.html', {'form':form}, RequestContext(request))
