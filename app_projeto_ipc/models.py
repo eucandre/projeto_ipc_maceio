@@ -144,10 +144,10 @@ class Rout(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return self.date
+        return self.researcher.__unicode__()
 
     class Meta:
         verbose_name_plural = 'Rota para pesquisa de precos do ipc'
 
-
-
+class Search(models.Model):
+    rout = models.ForeignKey(Rout)

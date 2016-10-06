@@ -3,7 +3,6 @@
 {% block cabecalho1parte %}Criar a rota{% endblock %}
 {% block cabecalho2parte %} estabelecimentos e elementos para serem pesquisados{% endblock %}
 {% block corpo_1 %}
-
     <form  method="post" action=".">
     {% csrf_token %}
         {{ form.as_p}}
