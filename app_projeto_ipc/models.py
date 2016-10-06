@@ -149,5 +149,14 @@ class Rout(models.Model):
     class Meta:
         verbose_name_plural = 'Rota para pesquisa de precos do ipc'
 
-class Search(models.Model):
-    rout = models.ForeignKey(Rout)
+#class Search(models.Model, Rout):
+#    date_search = models.DateField()
+#    rout = models.ForeignKey(Rout)
+#   price = models.FloatField()
+
+
+
+
+
+
+
