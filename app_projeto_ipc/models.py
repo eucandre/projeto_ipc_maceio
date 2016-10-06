@@ -143,7 +143,7 @@ class Rout(models.Model):
     product_to_search = models.ManyToManyField(Product)
     date = models.DateField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.date
 
     class Meta:

@@ -98,10 +98,10 @@ class FormProduto(forms.ModelForm):
         fields = ['name', 'mark', 'amount_per_price', 'item', 'active']
 
 class FormRota(forms.ModelForm):
-    #researcher = forms.ModelChoiceField(queryset=Profile.objects.all(), widget=forms.Select(attrs={'class':'form-control'}) )
-    #establishment = forms.ModelChoiceField(queryset=Establishment.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
-    #product_to_search = forms.ModelMultipleChoiceField(queryset=Product.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox-inline'}))
-    #date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+    researcher = forms.ModelChoiceField(queryset=Profile.objects.all(), widget=forms.Select(attrs={'class':'form-control'}) )
+    establishment = forms.ModelChoiceField(queryset=Establishment.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+    product_to_search = forms.ModelMultipleChoiceField(queryset=Product.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox-inline'}))
+    date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
 
     class Meta:
         model = Rout
