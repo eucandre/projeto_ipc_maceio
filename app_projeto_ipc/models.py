@@ -141,9 +141,13 @@ class Rout(models.Model):
     researcher = models.ForeignKey(Profile)
     establishment = models.ForeignKey(Establishment)
     product_to_search = models.ManyToManyField(Product)
-    date = models.DateField(auto_now=True)
+    date = models.DateField()
 
     def __unicode__(self):
-        return self.researcher
+        return self.date
+
+    class Meta:
+        verbose_name_plural = 'Rota para pesquisa de precos do ipc'
+
 
 
