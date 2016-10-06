@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa4fed4-00ea-4e2a-8bb7-b5bf2298ea90" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipc.db" afterPath="$PROJECT_DIR$/ipc.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/carlos.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/carlos.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_projeto_ipc/models.py" afterPath="$PROJECT_DIR$/app_projeto_ipc/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/paginas_da_rota/index.html" afterPath="$PROJECT_DIR$/templates/paginas_da_rota/index.html" />
     </list>
     <ignored path="projeto_ipc_maceio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_projeto_ipc/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+            <state relative-caret-position="1291">
+              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -51,10 +47,67 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DjangoModelDependency/#projeto_ipc_maceio" pinned="false" current-in-tab="true">
+        <entry file="uml://DjangoModelDependency/#projeto_ipc_maceio">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>DjangoModelDependency</ID>
+              <OriginalElement>#projeto_ipc_maceio</OriginalElement>
+              <nodes>
+                <node x="596.0" y="162.0">app_projeto_ipc.models.Subitem</node>
+                <node x="439.0625" y="81.0">app_projeto_ipc.models.Item</node>
+                <node x="0.0" y="162.0">app_projeto_ipc.models.Establishment</node>
+                <node x="320.0" y="162.0">app_projeto_ipc.models.Product</node>
+                <node x="420.0625" y="0.0">app_projeto_ipc.models.SubGroup</node>
+                <node x="331.0" y="243.0">app_projeto_ipc.models.Rout</node>
+                <node x="65.51196172248802" y="21.122488038277538">app_projeto_ipc.models.Group</node>
+                <node x="874.0" y="162.0">app_projeto_ipc.models.Profile</node>
+                <node x="323.4081339712919" y="324.0">app_projeto_ipc.models.Search</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Profile">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Subitem" target="app_projeto_ipc.models.Item">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Product">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Item" target="app_projeto_ipc.models.SubGroup">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Establishment">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Search" target="app_projeto_ipc.models.Rout">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="app_projeto_ipc.models.Product" target="app_projeto_ipc.models.Item">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.915863277826468" x="560.5" y="215.5" />
+              <SelectedNodes>
+                <node>app_projeto_ipc.models.Search</node>
+              </SelectedNodes>
+              <Categories />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
+            <state relative-caret-position="586">
               <caret line="101" column="52" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
               <folding>
                 <marker date="1475688761023" expanded="false" signature="0:360" ph="import ..." />
@@ -904,7 +957,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475755990436</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Os módulos administrativos estão prontos, falta a rota.">
+      <created>1475761505830</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1475761505830</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -1192,30 +1252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DjangoModelDependency/#projeto_ipc_maceio">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DjangoModelDependency</ID>
-          <OriginalElement>#projeto_ipc_maceio</OriginalElement>
-          <nodes>
-            <node x="" y="">app_projeto_ipc.models.Item</node>
-            <node x="" y="">app_projeto_ipc.models.SubGroup</node>
-            <node x="" y="">app_projeto_ipc.models.Establishment</node>
-            <node x="" y="">app_projeto_ipc.models.Rout</node>
-            <node x="" y="">app_projeto_ipc.models.Product</node>
-            <node x="" y="">app_projeto_ipc.models.Profile</node>
-            <node x="" y="">app_projeto_ipc.models.Group</node>
-            <node x="" y="">app_projeto_ipc.models.Subitem</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9561787905346187" x="561.0" y="113.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/paginas_do_sistema/grupos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1273,16 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="101" column="52" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
-          <folding>
-            <marker date="1475688761023" expanded="false" signature="0:360" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_projeto_ipc/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1515">
@@ -1337,11 +1363,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app_projeto_ipc/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        <state relative-caret-position="1291">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_projeto_ipc/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="101" column="52" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
+          <folding>
+            <marker date="1475688761023" expanded="false" signature="0:360" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DjangoModelDependency/#projeto_ipc_maceio">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DjangoModelDependency</ID>
+          <OriginalElement>#projeto_ipc_maceio</OriginalElement>
+          <nodes>
+            <node x="596.0" y="162.0">app_projeto_ipc.models.Subitem</node>
+            <node x="439.0625" y="81.0">app_projeto_ipc.models.Item</node>
+            <node x="0.0" y="162.0">app_projeto_ipc.models.Establishment</node>
+            <node x="320.0" y="162.0">app_projeto_ipc.models.Product</node>
+            <node x="420.0625" y="0.0">app_projeto_ipc.models.SubGroup</node>
+            <node x="331.0" y="243.0">app_projeto_ipc.models.Rout</node>
+            <node x="65.51196172248802" y="21.122488038277538">app_projeto_ipc.models.Group</node>
+            <node x="874.0" y="162.0">app_projeto_ipc.models.Profile</node>
+            <node x="323.4081339712919" y="324.0">app_projeto_ipc.models.Search</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Profile">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Subitem" target="app_projeto_ipc.models.Item">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Product">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Item" target="app_projeto_ipc.models.SubGroup">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Rout" target="app_projeto_ipc.models.Establishment">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Search" target="app_projeto_ipc.models.Rout">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="app_projeto_ipc.models.Product" target="app_projeto_ipc.models.Item">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.915863277826468" x="560.5" y="215.5" />
+          <SelectedNodes>
+            <node>app_projeto_ipc.models.Search</node>
+          </SelectedNodes>
+          <Categories />
         </state>
       </provider>
     </entry>
