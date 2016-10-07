@@ -95,7 +95,8 @@ def RotaCadastro(request):
     if request.method =='POST':
         form = FormRota(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            dado = cleaned_data
+            item = Rout(researcher = dado['researcher'], establishment= dado['establishment'], product_to_search=dado['product_to_search'], date=dado['date'])
             return render_to_response('arquivo_auxiliar/salvo.html', {})
     else:
         form  = FormRota()

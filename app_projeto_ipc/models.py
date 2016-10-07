@@ -141,6 +141,7 @@ class Rout(models.Model):
     researcher = models.ForeignKey(Profile)
     establishment = models.ForeignKey(Establishment)
     product_to_search = models.ManyToManyField(Product)
+    #price_product = models.FloatField()
     date = models.DateField()
 
     def __str__(self):
@@ -148,15 +149,3 @@ class Rout(models.Model):
 
     class Meta:
         verbose_name_plural = 'Rota para pesquisa de precos do ipc'
-
-#class Search(models.Model, Rout):
-#    date_search = models.DateField()
-#    rout = models.ForeignKey(Rout)
-#   price = models.FloatField()
-
-
-
-
-
-
-
