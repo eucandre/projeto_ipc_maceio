@@ -149,3 +149,12 @@ class Rout(models.Model):
 
     class Meta:
         verbose_name_plural = 'Rota para pesquisa de precos do ipc'
+
+class Seach(models.Model):
+    rout = models.ForeignKey(Rout)
+    price_product = models.FloatField()
+
+    def __str__(self):
+        return self.rout.__unicode__()
+
+

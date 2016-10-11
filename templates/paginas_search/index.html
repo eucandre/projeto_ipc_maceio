@@ -1,0 +1,9 @@
+{% extends "arquivo_auxiliar/base.html" %}
+{% block usuario %}{% endblock %}
+{% block cabecalho1parte %}Pesquisa{% endblock %}
+{% block cabecalho2parte %}Cataloga preços dos produtos{% endblock %}
+{% block corpo_1 %}
+    {% csrf_token %}
+    {{ formset.as_p }}
+     <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
+{% endblock %}

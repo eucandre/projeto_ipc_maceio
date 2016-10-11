@@ -3,7 +3,7 @@ __author__ = 'Carlos'
 from django import forms
 from models import *
 from datetime import *
-from django.forms import formset_factory
+
 
 GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
             (u'Vestuario','4 - Vestuario'),(u'Transportes','5 - Transportes'),(u'Saude_e_cuidados_especiais','6 - Saude e cuidados_especiais'),
@@ -98,9 +98,18 @@ class FormProduto(forms.ModelForm):
         model = Product
         fields = ['name', 'mark', 'amount_per_price', 'item', 'active']
 
-class FormRota(forms.Form):
+class FormRota(forms.ModelForm):
     researcher = forms.ModelChoiceField(queryset=Profile.objects.all(), widget=forms.Select(attrs={'class':'form-control'}) )
     establishment = forms.ModelChoiceField(queryset=Establishment.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
     product_to_search = forms.ModelMultipleChoiceField(queryset=Product.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox-inline'}))
     date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
+    class Meta:
+        model = Rout
+        fields = ['researcher', 'establishment', 'product_to_search', 'date']
+
+class FormSearch(forms.ModelForm):
+    class Meta:
+        model = Seach
+        fields = ['rout','price_product']
+
 

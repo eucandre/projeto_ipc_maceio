@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from app_projeto_ipc.forms import *
 from calculo_para_laspeyre import *
+from django.forms.formsets import formset_factory
+from django.forms.models import modelformset_factory
 
 #criar os usuarios e seus loggins, o acesso sera somente com acesso dos usuarios (Feito)
 #criar a edicao do perfil do usuario, podendo mudar a senha e o nome que de usuario.
@@ -101,3 +103,13 @@ def RotaCadastro(request):
     else:
         form  = FormRota()
     return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
+
+def SearchCadastro(request):
+    Tamanho_Search = len(Seach.objects.all())
+    #SeachFormSet = formset_factory(FormSearch, extra=Tamanho_Search)
+    SeachFormSet = modelformset_factory(Seach, extra=2, exclude=('rout', ))
+    formset = SeachFormSet()
+    if formset.is_valid():
+        for form in formset:
+            form.save()
+    return render_to_response('paginas_search/index.html', {'formset':formset}, RequestContext(request))
