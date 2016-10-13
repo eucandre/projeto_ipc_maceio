@@ -99,6 +99,7 @@ def RotaCadastro(request):
         if form.is_valid():
             dado = cleaned_data
             item = Rout(researcher = dado['researcher'], establishment= dado['establishment'], product_to_search=dado['product_to_search'], date=dado['date'])
+            item.save()
             return render_to_response('arquivo_auxiliar/salvo.html', {})
     else:
         form  = FormRota()
@@ -117,4 +118,4 @@ def SearchCadastro(request):
         else:
             return render_to_response('arquivo_auxiliar/testa.html')
     except Rout.DoesNotExist:
-        raise Http404('Rota esta Vazia ')
+        raise Http404('Rota esta Vazia')
