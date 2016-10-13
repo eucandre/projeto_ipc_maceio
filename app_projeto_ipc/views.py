@@ -105,11 +105,16 @@ def RotaCadastro(request):
     return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
 
 def SearchCadastro(request):
-    Tamanho_Search = len(Seach.objects.all())
-    #SeachFormSet = formset_factory(FormSearch, extra=Tamanho_Search)
-    SeachFormSet = modelformset_factory(Seach, extra=2, exclude=('rout', ))
-    formset = SeachFormSet()
-    if formset.is_valid():
-        for form in formset:
-            form.save()
-    return render_to_response('paginas_search/index.html', {'formset':formset}, RequestContext(request))
+    try:
+        rout = Rout.objects.get(pk=len(Rout.objects.all()))
+        if len(rout.product_to_search_id):
+            SeachFormSet = modelformset_factory(Seach, extra=2)
+            formset = SeachFormSet()
+            if formset.is_valid():
+                for form in formset:
+                    form.save()
+            return render_to_response('paginas_search/index.html', {'formset':formset}, RequestContext(request))
+        else:
+            return render_to_response('arquivo_auxiliar/testa.html')
+    except Rout.DoesNotExist:
+        raise Http404('Rota esta Vazia ')

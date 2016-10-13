@@ -108,6 +108,8 @@ class FormRota(forms.ModelForm):
         fields = ['researcher', 'establishment', 'product_to_search', 'date']
 
 class FormSearch(forms.ModelForm):
+    rout = forms.ModelChoiceField(queryset=Rout.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+    price_product = forms.FloatField(widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Preco do produto'}))
     class Meta:
         model = Seach
         fields = ['rout','price_product']
