@@ -152,6 +152,7 @@ class Rout(models.Model):
 
 class Seach(models.Model):
     rout = models.ForeignKey(Rout)
+    products_to_value_price = models.CharField(max_length=150)
     price_product = models.FloatField()
 
     def __str__(self):

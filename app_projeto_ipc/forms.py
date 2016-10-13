@@ -109,6 +109,7 @@ class FormRota(forms.ModelForm):
 
 class FormSearch(forms.ModelForm):
     rout = forms.ModelChoiceField(queryset=Rout.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+    products_to_value_price = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'class':'forms-control'}))
     price_product = forms.FloatField(widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Preco do produto'}))
     class Meta:
         model = Seach
