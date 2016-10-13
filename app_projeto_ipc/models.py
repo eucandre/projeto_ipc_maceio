@@ -156,5 +156,3 @@ class Seach(models.Model):
 
     def __str__(self):
         return self.rout.__unicode__()
-
-
