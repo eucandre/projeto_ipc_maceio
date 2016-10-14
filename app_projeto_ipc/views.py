@@ -93,35 +93,3 @@ def ProdutoCadastro(request):
         form = FormProduto()
     return render_to_response('paginas_produtos/index.html', {'form':form}, RequestContext(request))
 
-def RotaCadastro(request):
-    if request.method =='POST':
-        form = FormRota(request.POST, request.FILES)
-        if form.is_valid():
-            dado = cleaned_data
-            item = Rout(researcher = dado['researcher'], establishment= dado['establishment'], product_to_search=dado['product_to_search'], date=dado['date'])
-            item.save()
-            return render_to_response('arquivo_auxiliar/salvo.html', {})
-    else:
-        form  = FormRota()
-    return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
-
-def SearchCadastro(request):
-    rout = Rout
-    tamanho =len(rout.objects.all())
-    try:
-        if tamanho==0:
-            SeachFormSet = modelformset_factory(Seach)
-            formset = SeachFormSet()
-            if formset.is_valid():
-                for form in formset:
-                    form.save()
-            return render_to_response('paginas_search/index.html', {'formset':formset}, RequestContext(request))
-        elif tamanho>0:
-            SeachFormSet = modelformset_factory(Seach,extra=tamanho)
-            formset = SeachFormSet()
-            if formset.is_valid():
-                for form in formset:
-                    form.save()
-            return render_to_response('paginas_search/index.html', {'formset': formset}, RequestContext(request))
-    except Rout.DoesNotExist:
-        raise Http404('Rota esta Vazia')

@@ -98,21 +98,3 @@ class FormProduto(forms.ModelForm):
         model = Product
         fields = ['name', 'mark', 'amount_per_price', 'item', 'active']
 
-class FormRota(forms.ModelForm):
-    researcher = forms.ModelChoiceField(queryset=Profile.objects.all(), widget=forms.Select(attrs={'class':'form-control'}) )
-    establishment = forms.ModelChoiceField(queryset=Establishment.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
-    product_to_search = forms.ModelMultipleChoiceField(queryset=Product.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox-inline'}))
-    date = forms.DateField(label='Data do registro', widget=forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data de entrada de dados'}))
-    class Meta:
-        model = Rout
-        fields = ['researcher', 'establishment', 'product_to_search', 'date']
-
-class FormSearch(forms.ModelForm):
-    rout = forms.ModelChoiceField(queryset=Rout.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
-    products_to_value_price = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'class':'forms-control'}))
-    price_product = forms.FloatField(widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Preco do produto'}))
-    class Meta:
-        model = Seach
-        fields = ['rout','price_product']
-
-

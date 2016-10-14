@@ -137,23 +137,3 @@ class Profile(models.Model):
     class Meta:
         verbose_name_plural = 'Perfil de usuarios do sistema do ipc maceio'
 
-class Rout(models.Model):
-    researcher = models.ForeignKey(Profile)
-    establishment = models.ForeignKey(Establishment)
-    product_to_search = models.ManyToManyField(Product)
-    #price_product = models.FloatField()
-    date = models.DateField()
-
-    def __str__(self):
-        return self.researcher.__unicode__()
-
-    class Meta:
-        verbose_name_plural = 'Rota para pesquisa de precos do ipc'
-
-class Seach(models.Model):
-    rout = models.ForeignKey(Rout)
-    products_to_value_price = models.CharField(max_length=150)
-    price_product = models.FloatField()
-
-    def __str__(self):
-        return self.rout.__unicode__()
