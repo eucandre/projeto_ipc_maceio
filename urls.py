@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^subitem', 'app_projeto_ipc.views.SubitemCadastro'),
     url(r'^item', 'app_projeto_ipc.views.ItemCadastro'),
     url(r'^produto', 'app_projeto_ipc.views.ProdutoCadastro'),
-    url(r'^rota', 'app_projeto_ipc.views.RotaCadastro'),
+    url(r'^rota', 'app_projeto_ipc.views.RoutCadastro'),
     url(r'^pesquisa', 'app_projeto_ipc.views.SearchCadastro'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

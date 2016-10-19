@@ -3,6 +3,8 @@ __author__ = 'Carlos'
 from django import forms
 from models import *
 from datetime import *
+from django.http import *
+
 
 
 GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
@@ -98,3 +100,24 @@ class FormProduto(forms.ModelForm):
         model = Product
         fields = ['name', 'mark', 'amount_per_price', 'item', 'active']
 
+class FormRout(forms.ModelForm):
+    products = forms.ModelMultipleChoiceField(queryset=Product.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox'}))
+    class Meta:
+        model = Rout
+        fields = ['profile_searcher', 'establishment', 'products']
+
+
+class FormSearch(forms.ModelForm):
+
+    class Meta:
+        model = Search
+        fields = ['rout', 'value_product']
+
+    #def __init__(self):
+    #    try:
+    #        obj_rout = Rout.objects.get(pk = len(Rout.objects.all()))
+    #        if obj_rout > 0:
+    #            super(FormSearch, self).__init__()
+    #            self.fields['value_product'].required = True
+    #    except Rout.DoesNotExist:
+    #        raise Http404("Sem objetos ainda!")

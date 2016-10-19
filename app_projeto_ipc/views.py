@@ -93,3 +93,22 @@ def ProdutoCadastro(request):
         form = FormProduto()
     return render_to_response('paginas_produtos/index.html', {'form':form}, RequestContext(request))
 
+def RoutCadastro(request):
+    if request.method == 'POST':
+        form = FormRout(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormRout()
+    return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
+
+def SearchCadastro(request):
+    if request.method == 'POST':
+        form = FormSearch(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        form = FormSearch()
+    return render_to_response('paginas_search/index.html', {'form':form}, RequestContext(request))
