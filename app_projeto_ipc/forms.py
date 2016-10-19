@@ -113,11 +113,11 @@ class FormSearch(forms.ModelForm):
         model = Search
         fields = ['rout', 'value_product']
 
-    #def __init__(self):
-    #    try:
-    #        obj_rout = Rout.objects.get(pk = len(Rout.objects.all()))
-    #        if obj_rout > 0:
-    #            super(FormSearch, self).__init__()
-    #            self.fields['value_product'].required = True
-    #    except Rout.DoesNotExist:
-    #        raise Http404("Sem objetos ainda!")
+    def __init__(self):
+        try:
+            obj_rout = Rout.objects.get(pk = len(Rout.objects.all()))
+            if obj_rout.products > 0:
+                super(FormSearch, self).__init__()
+                self.fields['value_product'].required = True
+        except Rout.DoesNotExist:
+            raise Http404("Sem objetos ainda!")
