@@ -145,11 +145,6 @@ class Rout(models.Model):
     establishment = models.ForeignKey(Establishment)
     products = models.ManyToManyField(Product)
 
-
-    def Size(self):
-        '''Retorna o tapannho do conjunto de produtos'''
-        return int(len(self.products._choices))
-
     def __unicode__(self):
         return self.profile_searcher.__str__()
 
@@ -160,14 +155,8 @@ class Search(models.Model):
     rout = models.ForeignKey(Rout)
     value_product = models.FloatField()
 
-    def __str__(self):
-        return self.rout.__unicode__
+    def __unicode__(self):
+        return self.rout.__str__()
 
-    def repli(self):
-        i = len(self.rout.products.values())
-        if i > 0:
-            while i > 0:
-                i = i-1
-                return self.value_product
 
 

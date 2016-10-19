@@ -104,11 +104,14 @@ def RoutCadastro(request):
     return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
 
 def SearchCadastro(request):
+    object_rout = Rout.objects.get(pk=2)
+    size_products_rout = len(object_rout.products.all())
     if request.method == 'POST':
         form = FormSearch(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return render_to_response('arquivo_auxiliar/salvo.html', {})
+
+            return render_to_response('arquivo_auxiliar/salvo.html',{})
     else:
         form = FormSearch()
-    return render_to_response('paginas_search/index.html', {'form':form}, RequestContext(request))
+    return render_to_response('paginas_search/index.html', {'form':form, 'size':size_products_rout}, RequestContext(request))

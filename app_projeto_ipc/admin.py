@@ -8,5 +8,5 @@ admin.site.register(Subitem)
 admin.site.register(Profile)
 admin.site.register(Establishment)
 admin.site.register(Product)
-#admin.site.register(Rout)
-
+admin.site.register(Rout)
+admin.site.register(Search)
