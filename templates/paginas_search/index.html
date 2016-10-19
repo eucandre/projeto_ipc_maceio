@@ -5,8 +5,7 @@
 {% block corpo_1 %}
     <form  method="post" action=".">
     {% csrf_token %}
-        {{ form.rout.label }}
-        {{ form.rout.value }}
+        {{ form.as_p}}
      <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>
 {% endblock %}

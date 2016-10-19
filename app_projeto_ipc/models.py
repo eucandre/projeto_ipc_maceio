@@ -131,8 +131,8 @@ class Profile(models.Model):
     since = models.DateField()
     active = models.CharField(choices=ATIVO, max_length=150)
 
-    def __str__(self):
-        return self.name.__unicode__
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = 'Perfil de usuarios do sistema do ipc maceio'
@@ -151,7 +151,7 @@ class Rout(models.Model):
         return int(len(self.products._choices))
 
     def __unicode__(self):
-        return self.profile_searcher
+        return self.profile_searcher.__str__()
 
     class Meta:
         verbose_name_plural = 'Rota para a catalogacao dos precos de um conjunto de produtos'
@@ -160,8 +160,8 @@ class Search(models.Model):
     rout = models.ForeignKey(Rout)
     value_product = models.FloatField()
 
-    def __unicode__(self):
-        return self.rout.__str__()
+    def __str__(self):
+        return self.rout.__unicode__
 
     def repli(self):
         i = len(self.rout.products.values())
