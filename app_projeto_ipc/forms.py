@@ -4,6 +4,7 @@ from django import forms
 from models import *
 from datetime import *
 from django.http import *
+from django.forms.formsets import BaseFormSet
 
 
 
@@ -107,8 +108,17 @@ class FormRout(forms.ModelForm):
         fields = ['profile_searcher', 'establishment', 'products']
 
 
-class FormSearch(forms.ModelForm):
+class FormSearch(forms.Form):
+    rout = forms.ModelChoiceField(queryset=Rout.objects.all(),  widget=forms.Select(attrs={'class':'form-control'}))
+    value_product = forms.FloatField()
 
-    class Meta:
-        model = Search
-        fields = ['rout', 'value_product']
+class BaseFormSearch(BaseFormSet):
+    def clean(self):
+        if any(self.errors):
+            return
+
+        value_products = []
+        for form in self.forms:
+            if form.cleaned_data:
+                value_product = form.cleaned_data['value_product']
+                value_products.append(value_product)
