@@ -103,35 +103,19 @@ def RoutCadastro(request):
         form = FormRout()
     return render_to_response('paginas_da_rota/index.html', {'form':form}, RequestContext(request))
 
-#def SearchCadastro(request):
-#    object_rout = Rout.objects.get(pk=2)
-#    size_products_rout = len(object_rout.products.all())
-#    if request.method == 'POST':
-#        form = FormSearch(request.POST, request.FILES)
-#        if form.is_valid():
-#           form.save()
-#           return render_to_response('arquivo_auxiliar/salvo.html',{})#
-
-    #else:
-    #    form = FormSearch()
-    #return render_to_response('paginas_search/index.html', {'form':form, 'size':size_products_rout}, RequestContext(request))
 def SearchCadastro(request):
-    if len(Rout.objects.all()) != None:
-        object_rout = Rout.objects.get(pk=1)
-        size_products_rout = len(object_rout.products.all())
-        if request.method == 'POST':
-            form = FormSearch(request.POST, request.FILES) #Crio a instancia do form para poder enviar atraves dele
-            if form.is_valid():
-                dado = form.cleaned_data
-                item = Search()
-                item.rout = dado['rout']
-                if size_products_rout > 0:
-                   while size_products_rout != 0:
-                       item.value_product = dado['value_product']
-                       size_products_rout = size_products_rout-1
-                item.save()
-        else:
-            form = FormSearch()
-        return render_to_response('paginas_search/index.html', {'form':form}, RequestContext(request))
-    elif Rout.DoesNotExist:
-        return HttpResponse("Sem objetos")
+    if request.method=='POST':
+        SearchFormSet = formset_factory(FormSearch, formset=BaseFormSearch)
+        formSeachset = SearchFormSet(request.POST, request.FILES)
+        if formSeachset.is_valid():
+            item  = Search()
+            item.rout = formSearch.cleaned_data['rout']
+            item.value_product = formSearch.cleaned_data['value_product']
+            item.save()
+            print "Foi salvo, esta funcinando o banco de dados\n"
+            return render_to_response('arquivo_auxiliar/salvo.html', {})
+    else:
+        formSeachset = formset_factory(FormSearch, formset=BaseFormSearch)
+    return render_to_response('paginas_search/index.html', {'form':formSeachset}, RequestContext(request))
+        
+         

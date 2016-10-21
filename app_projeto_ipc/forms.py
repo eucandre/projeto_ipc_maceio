@@ -5,7 +5,8 @@ from models import *
 from datetime import *
 from django.http import *
 from django.forms.formsets import BaseFormSet
-
+from util import util as U
+from django.forms.models import inlineformset_factory
 
 
 GRUPOS = ((u'Aliementacao_e_bebidas','1 - Aliementacao e bebidas'),(u'Habitacao','2 - Habitacao'),(u'Artigos_e_residencia','3 - Artigos e residencia'),
@@ -108,17 +109,7 @@ class FormRout(forms.ModelForm):
         fields = ['profile_searcher', 'establishment', 'products']
 
 
-class FormSearch(forms.Form):
-    rout = forms.ModelChoiceField(queryset=Rout.objects.all(),  widget=forms.Select(attrs={'class':'form-control'}))
-    value_product = forms.FloatField()
-
-class BaseFormSearch(BaseFormSet):
-    def clean(self):
-        if any(self.errors):
-            return
-
-        value_products = []
-        for form in self.forms:
-            if form.cleaned_data:
-                value_product = form.cleaned_data['value_product']
-                value_products.append(value_product)
+class FormSearch(forms.ModelForm):
+    class Meta:
+        model = Search
+        fields = '__all__'
