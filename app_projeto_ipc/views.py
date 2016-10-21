@@ -9,7 +9,7 @@ from app_projeto_ipc.forms import *
 from calculo_para_laspeyre import *
 from django.forms.formsets import formset_factory
 from django.forms.models import modelformset_factory
-
+from django.forms.formsets import BaseFormSet
 #criar os usuarios e seus loggins, o acesso sera somente com acesso dos usuarios (Feito)
 #criar a edicao do perfil do usuario, podendo mudar a senha e o nome que de usuario.
 #cada usuario cadastrado podera editar suas atividades, mesmo depois de salvas.
@@ -105,7 +105,7 @@ def RoutCadastro(request):
 
 def SearchCadastro(request):
     if request.method=='POST':
-        SearchFormSet = formset_factory(FormSearch, formset=BaseFormSearch)
+        SearchFormSet = formset_factory(FormSearch, formset=FormRout, extra=2)
         formSeachset = SearchFormSet(request.POST, request.FILES)
         if formSeachset.is_valid():
             item  = Search()
@@ -115,7 +115,7 @@ def SearchCadastro(request):
             print "Foi salvo, esta funcinando o banco de dados\n"
             return render_to_response('arquivo_auxiliar/salvo.html', {})
     else:
-        formSeachset = formset_factory(FormSearch, formset=BaseFormSearch)
+        formSeachset = formset_factory(FormSearch, formset=FormRout, extra=2)
     return render_to_response('paginas_search/index.html', {'form':formSeachset}, RequestContext(request))
         
          

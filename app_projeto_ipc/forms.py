@@ -5,7 +5,6 @@ from models import *
 from datetime import *
 from django.http import *
 from django.forms.formsets import BaseFormSet
-from util import util as U
 from django.forms.models import inlineformset_factory
 
 
@@ -108,8 +107,7 @@ class FormRout(forms.ModelForm):
         model = Rout
         fields = ['profile_searcher', 'establishment', 'products']
 
-
 class FormSearch(forms.ModelForm):
     class Meta:
         model = Search
-        fields = '__all__'
+        fields = ['rout', 'value_product']

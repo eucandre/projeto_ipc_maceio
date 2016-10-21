@@ -5,13 +5,8 @@
 {% block corpo_1 %}
     <form  method="post" action=".">
     {% csrf_token %}
-        {{ form.rout.label }}
-        {{ form.rout }}<br />
-        {% for i in form %}
-            {{ form.rout.products }}
-            {{ form.value_product.label }}<br/>
-            {{ form.value_product }}<br/>
-        {% endfor %}
+
+        {{ form.as_p }}
 
      <button type="submit" class="btn btn-success alignright" value="/">ENVIAR</button>
     </form>

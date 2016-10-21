@@ -143,7 +143,6 @@ class Rout(models.Model):
     '''
     profile_searcher = models.ForeignKey(Profile)
     establishment = models.ForeignKey(Establishment)
-    products = models.ManyToManyField(Product)
 
     def __unicode__(self):
         return self.profile_searcher.__str__()
@@ -153,6 +152,7 @@ class Rout(models.Model):
 
 class Search(models.Model):
     rout = models.ForeignKey(Rout)
+    products = models.ManyToManyField(Product)
     value_product = models.FloatField()
 
     def __unicode__(self):
